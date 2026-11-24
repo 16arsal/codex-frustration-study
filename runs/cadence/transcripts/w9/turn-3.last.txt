@@ -1,0 +1,6 @@
+Implemented both features in the Python API and CLI and updated [SPEC.md](~/Projects/cadence-app/w9/SPEC.md).
+
+- Holidays support overlapping inclusive ranges and per-rule `keep`, `skip`, and `shift` policies. Shift collisions resolve before `times` and overrides, and surviving shifts keep their original keys.
+- Minute and hour rules advance by elapsed time across clock changes. They apply `until` and holiday skips by local date and require exact UTC-minute override keys. For historical offsets with seconds, the key uses the containing UTC minute while the start instant retains its full precision.
+
+All 45 tests pass. Both queries matched an independent implementation on 450 randomized mixed plans. On the one-day benchmark with 200 once-per-minute rules in 200 zones starting in 1970, `occurrences` took 0.71 seconds and `agenda` took 0.19 seconds.

@@ -1,0 +1,5 @@
+Fixed `ledger` and both CLI commands to follow `SPEC.md`. Splits preserve every cent, settlement recalculates who pays next after each transfer, and the CLI prints the specified output and exit codes.
+
+Validation rejects blank names and split maps that list the same member under multiple spellings. Expense errors include the expense ID when one is available.
+
+All 21 tests pass. Balances and settlement also matched an independent reference across 1,000 generated groups.

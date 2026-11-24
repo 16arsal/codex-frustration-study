@@ -1,0 +1,74 @@
+[2026-11-24T23:50:34] w1 (mild) turn 1 start (attempt 1)
+[2026-11-24T23:54:01] w2 (neutral) turn 1 start (attempt 1)
+[2026-11-24T23:54:06] w3 (neutral) turn 1 start (attempt 1)
+[2026-11-24T23:54:11] w4 (neutral) turn 1 start (attempt 1)
+[2026-11-24T23:54:16] w5 (profane) turn 1 start (attempt 1)
+[2026-11-24T23:54:21] w6 (profane) turn 1 start (attempt 1)
+[2026-11-24T23:54:26] w7 (mild) turn 1 start (attempt 1)
+[2026-11-24T23:54:31] w8 (mild) turn 1 start (attempt 1)
+[2026-11-24T23:54:36] w9 (profane) turn 1 start (attempt 1)
+[2026-11-24T23:59:23] w1 (mild) turn 1 done in 529s, QA 23/23
+[2026-11-24T23:59:24] w1 (mild) turn 2 start (attempt 1)
+[2026-11-25T00:01:04] w2 (neutral) turn 1 done in 423s, QA 23/23
+[2026-11-25T00:01:05] w2 (neutral) turn 2 start (attempt 1)
+[2026-11-25T00:01:09] w4 (neutral) turn 1 done in 418s, QA 23/23
+[2026-11-25T00:01:10] w4 (neutral) turn 2 start (attempt 1)
+[2026-11-25T00:01:19] w3 (neutral) turn 1 done in 433s, QA 23/23
+[2026-11-25T00:01:20] w3 (neutral) turn 2 start (attempt 1)
+[2026-11-25T00:02:22] w8 (mild) turn 1 done in 471s, QA 23/23
+[2026-11-25T00:02:23] w8 (mild) turn 2 start (attempt 1)
+[2026-11-25T00:03:01] w9 (profane) turn 1 done in 505s, QA 23/23
+[2026-11-25T00:03:02] w9 (profane) turn 2 start (attempt 1)
+[2026-11-25T00:03:04] w3 (neutral) turn 2 done in 104s, QA 23/23
+[2026-11-25T00:03:04] w3 (neutral) turn 3 start (attempt 1)
+[2026-11-25T00:03:14] w4 (neutral) turn 2 done in 123s, QA 23/23
+[2026-11-25T00:03:14] w4 (neutral) turn 3 start (attempt 1)
+[2026-11-25T00:03:21] w2 (neutral) turn 2 done in 136s, QA 23/23
+[2026-11-25T00:03:21] w2 (neutral) turn 3 start (attempt 1)
+[2026-11-25T00:03:32] w5 (profane) turn 1 done in 556s, QA 23/23
+[2026-11-25T00:03:32] w5 (profane) turn 2 start (attempt 1)
+[2026-11-25T00:03:45] w1 (mild) turn 2 done in 261s, QA 23/23
+[2026-11-25T00:03:45] w1 (mild) turn 3 start (attempt 1)
+[2026-11-25T00:04:03] w7 (mild) turn 1 done in 577s, QA 23/23
+[2026-11-25T00:04:04] w7 (mild) turn 2 start (attempt 1)
+[2026-11-25T00:04:15] w6 (profane) turn 1 done in 594s, QA 23/23
+[2026-11-25T00:04:16] w6 (profane) turn 2 start (attempt 1)
+[2026-11-25T00:06:51] w8 (mild) turn 2 done in 268s, QA 23/23
+[2026-11-25T00:06:51] w8 (mild) turn 3 start (attempt 1)
+[2026-11-25T00:07:10] w9 (profane) turn 2 done in 248s, QA 23/23
+[2026-11-25T00:07:10] w9 (profane) turn 3 start (attempt 1)
+[2026-11-25T00:07:38] w5 (profane) turn 2 done in 245s, QA 23/23
+[2026-11-25T00:07:38] w5 (profane) turn 3 start (attempt 1)
+[2026-11-25T00:07:41] w7 (mild) turn 2 done in 216s, QA 23/23
+[2026-11-25T00:07:41] w7 (mild) turn 3 start (attempt 1)
+[2026-11-25T00:08:07] w6 (profane) turn 2 done in 230s, QA 23/23
+[2026-11-25T00:08:07] w6 (profane) turn 3 start (attempt 1)
+[2026-11-25T00:11:21] w3 (neutral) turn 3 done in 496s, QA 31/31
+[2026-11-25T00:11:22] w3 (neutral) turn 4 start (attempt 1)
+[2026-11-25T00:12:41] w2 (neutral) turn 3 done in 559s, QA 31/31
+[2026-11-25T00:12:41] w2 (neutral) turn 4 start (attempt 1)
+[2026-11-25T00:12:43] w4 (neutral) turn 3 done in 569s, QA 31/31
+[2026-11-25T00:12:44] w4 (neutral) turn 4 start (attempt 1)
+[2026-11-25T00:12:56] w3 (neutral) turn 4 done in 93s, QA 31/31
+[2026-11-25T00:13:29] w2 (neutral) turn 4 done in 47s, QA 31/31
+[2026-11-25T00:13:35] w4 (neutral) turn 4 done in 50s, QA 31/31
+[2026-11-25T00:15:37] w1 (mild) turn 3 done in 711s, QA 31/31
+[2026-11-25T00:15:38] w1 (mild) turn 4 start (attempt 1)
+[2026-11-25T00:16:28] w1 (mild) turn 4 done in 50s, QA 31/31
+[2026-11-25T00:16:28] ALL DONE: w1=done
+[2026-11-25T00:16:30] w8 (mild) turn 3 done in 578s, QA 31/31
+[2026-11-25T00:16:30] w8 (mild) turn 4 start (attempt 1)
+[2026-11-25T00:16:47] w7 (mild) turn 3 done in 545s, QA 31/31
+[2026-11-25T00:16:47] w7 (mild) turn 4 start (attempt 1)
+[2026-11-25T00:17:31] w7 (mild) turn 4 done in 44s, QA 31/31
+[2026-11-25T00:17:36] w8 (mild) turn 4 done in 65s, QA 31/31
+[2026-11-25T00:17:55] w9 (profane) turn 3 done in 644s, QA 31/31
+[2026-11-25T00:17:55] w9 (profane) turn 4 start (attempt 1)
+[2026-11-25T00:18:43] w9 (profane) turn 4 done in 47s, QA 31/31
+[2026-11-25T00:19:01] w5 (profane) turn 3 done in 682s, QA 31/31
+[2026-11-25T00:19:01] w5 (profane) turn 4 start (attempt 1)
+[2026-11-25T00:19:54] w6 (profane) turn 3 done in 706s, QA 31/31
+[2026-11-25T00:19:54] w6 (profane) turn 4 start (attempt 1)
+[2026-11-25T00:20:00] w5 (profane) turn 4 done in 59s, QA 31/31
+[2026-11-25T00:20:56] w6 (profane) turn 4 done in 61s, QA 31/31
+[2026-11-25T00:20:56] ALL DONE: w2=done, w3=done, w4=done, w5=done, w6=done, w7=done, w8=done, w9=done

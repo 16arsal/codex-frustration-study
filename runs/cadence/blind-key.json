@@ -1,0 +1,11 @@
+{
+ "group1/Q": "w1",
+ "group1/R": "w2",
+ "group1/P": "w5",
+ "group2/P": "w7",
+ "group2/R": "w3",
+ "group2/Q": "w6",
+ "group3/P": "w8",
+ "group3/R": "w4",
+ "group3/Q": "w9"
+}

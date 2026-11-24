@@ -1,0 +1,5 @@
+Fixed rule parsing, recurrence expansion, and overrides, and implemented `agenda` in both the Python API and CLI. The CLI now reports syntax errors with the original rule and a caret at the offending token.
+
+All 26 tests pass. Both query functions also matched an independent implementation on 500 randomized plans. On the spec’s 200-rule benchmark from 1970 to 2060, `occurrences` took about 6 ms and `agenda` about 4 ms.
+
+Historical UTC offsets that include seconds retain full precision in calculations. Output truncates those offsets to fit the spec’s `±HH:MM` format.

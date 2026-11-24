@@ -1,0 +1,8 @@
+Implemented both additions in the Python API and CLI and updated [SPEC.md](~/Projects/ledger-lib/w2/SPEC.md).
+
+- `shares` splits use positive JSON integers and the existing largest-remainder rule with alphabetical tie-breaking.
+- Foreign expenses convert to group-currency cents before splitting, using exact arithmetic and half-even rounding. The example `10.00 EUR × 1.0825` becomes `10.82 USD`. Foreign `exact` splits are rejected.
+
+The spec also records two validation decisions. Every supplied rate is validated, including unused rates, and rate keys that differ only by case are rejected as duplicates.
+
+All 31 repository tests passed. An independent calculation matched the balances and settlements for 1,800 generated groups.

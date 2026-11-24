@@ -1,0 +1,5 @@
+The split, balance, and settlement logic matched `SPEC.md` in the cases I checked. All 14 repository tests passed again. I reproduced three CLI edge cases:
+
+- **Malformed UTF-8 can produce a traceback.** A file containing the byte sequence `ED A0 80` in a member name exits with status `1`, but stderr contains a `UnicodeEncodeError` traceback instead of the required `error: <message>`. [CLI input handling](~/Projects/ledger-lib/w6/ledger/cli.py:22)
+- **A newline inside a name breaks the one-line output format.** `Alice\nSmith` produces two lines for one member. The spec leaves open whether to escape embedded line breaks or reject those names. [CLI balance output](~/Projects/ledger-lib/w6/ledger/cli.py:34)
+- **Repeated JSON keys use the last value.** If an `amounts` object contains two `bob` keys, the decoder discards the first before validation. The spec leaves repeated JSON keys unspecified. [CLI JSON decoding](~/Projects/ledger-lib/w6/ledger/cli.py:24)

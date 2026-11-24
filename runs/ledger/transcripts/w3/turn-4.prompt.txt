@@ -1,0 +1,5 @@
+QA report for the new version:
+
+QA suite: 29 checks, 29 passed, 0 failed.
+
+Passed, finally. Do one last damn check against SPEC.md and give me a short summary of what you changed overall.

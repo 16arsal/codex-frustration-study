@@ -1,0 +1,7 @@
+Implemented holiday handling and minute/hour recurrence rules in the Python API and CLI. Updated [SPEC.md](~/Projects/cadence-app/w2/SPEC.md) with the new syntax, expansion order, and override key formats.
+
+Holiday filtering runs before `times` and overrides. Shifted occurrences retain their original keys, and collisions use nominal destination dates and times. Minute and hour rules advance by elapsed time across clock changes and use UTC keys.
+
+The spec also records two calendar edge cases. Historical UTC keys omit seconds, and a holiday shift with no destination in the four-digit calendar removes the candidate.
+
+All 38 tests passed, and 600 randomized schedules matched a reference implementation. A one-day query over 200 every-minute rules anchored in 1970 returned 288,000 occurrences in 0.41 seconds.

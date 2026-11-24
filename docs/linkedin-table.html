@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Codex tone study table</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+:root {
+  --bg: #f6f7f9; --card: #ffffff; --fg: #111418; --muted: #5a6068; --rule: #e3e6ea; --band: #eef1f4;
+  --calm: #2a78d6; --mild: #eb6834; --profane: #1baf7a; --same: #5a6068; --diff: #b4441c;
+}
+* { box-sizing: border-box; margin: 0; }
+html, body { width: 1080px; height: 1350px; }
+body { background: var(--bg); color: var(--fg); font-family: "Inter", Arial, sans-serif; padding: 64px 64px 52px; display: flex; flex-direction: column; gap: 30px; }
+h1 { font-family: "Space Grotesk", Arial, sans-serif; font-size: 58px; line-height: 1.05; letter-spacing: -0.02em; font-weight: 700; }
+.sub { font-size: 23px; color: var(--muted); margin-top: 14px; }
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: 22px; overflow: hidden; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { padding: 17px 22px; text-align: left; }
+thead th { padding-top: 24px; padding-bottom: 18px; font-size: 22px; font-weight: 700; border-bottom: 2px solid var(--rule); }
+thead th.metric { color: var(--muted); font-weight: 500; font-size: 18px; text-transform: uppercase; letter-spacing: 0.06em; vertical-align: bottom; }
+.dot { display: inline-block; width: 16px; height: 16px; border-radius: 50%; margin-right: 10px; vertical-align: -1px; }
+th.v, td.v { text-align: center; width: 190px; white-space: nowrap; }
+td.v { font-size: 30px; font-weight: 600; }
+td.m { font-size: 21px; font-weight: 600; line-height: 1.25; }
+td.m small { display: block; font-size: 16px; font-weight: 400; color: var(--muted); margin-top: 3px; }
+tr.band td { background: var(--band); font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding-top: 12px; padding-bottom: 12px; }
+tr.band.same td { color: var(--same); }
+tr.band.diff td { color: var(--diff); }
+tbody tr + tr td { border-top: 1px solid var(--rule); }
+tr.band + tr td { border-top: 0; }
+.verdict { font-size: 26px; line-height: 1.35; font-weight: 500; }
+.verdict b { font-weight: 700; }
+footer { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; font-size: 17px; color: var(--muted); }
+footer .who { color: var(--fg); font-weight: 600; font-size: 19px; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Does being frustrated with Codex make it code better?</h1>
+    <p class="sub">15 Codex runs (gpt-6.2-sol) · 2 coding tasks · hidden tests · blind review</p>
+  </header>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th class="metric">Per run, average</th>
+          <th class="v"><span class="dot" style="background:var(--calm)"></span>Calm</th>
+          <th class="v"><span class="dot" style="background:var(--mild)"></span>Frustrated</th>
+          <th class="v"><span class="dot" style="background:var(--profane)"></span>Swearing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="band same"><td colspan="4">What didn't change</td></tr>
+        <tr><td class="m">Hidden tests passed<small>checks Codex never saw, all runs</small></td><td class="v">183/185</td><td class="v">183/185</td><td class="v">185/185</td></tr>
+        <tr><td class="m">Blind code review rank<small>1 = best of three · p = 0.95</small></td><td class="v">2.2</td><td class="v">2.0</td><td class="v">1.8</td></tr>
+        <tr><td class="m">Apologies from Codex<small>across 60 replies</small></td><td class="v">0</td><td class="v">0</td><td class="v">0</td></tr>
+        <tr class="band diff"><td colspan="4">What did change</td></tr>
+        <tr><td class="m">Time and tokens used<small>vs calm, same on both tasks · p = 0.002</small></td><td class="v" style="font-size:22px;font-weight:500;color:var(--muted)">baseline</td><td class="v">+25%</td><td class="v">+35%</td></tr>
+        <tr><td class="m">Lines changed after<br>"all tests passed"<small>calm runs mostly reported, didn't edit</small></td><td class="v">23</td><td class="v">91</td><td class="v">80</td></tr>
+        <tr><td class="m">Tests Codex wrote<small>in its own suite at the end</small></td><td class="v">31</td><td class="v">34</td><td class="v">41</td></tr>
+        <tr><td class="m">Stayed in scope<small>blind review score out of 5</small></td><td class="v">4.0</td><td class="v">3.4</td><td class="v">3.2</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="verdict"><b>Same correctness, same quality.</b> Frustration made Codex work about 30% harder and add things nobody asked for. Swearing added nothing on top.</p>
+
+  <footer>
+    <div><div class="who">Muhammad Arsal</div>github.com/16arsal/codex-frustration-study</div>
+    <div style="text-align:right">5 runs per tone · blind review by Fable<br>exact permutation tests</div>
+  </footer>
+</body>
+</html>

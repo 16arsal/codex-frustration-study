@@ -1,0 +1,5 @@
+Fixed rule parsing, recurrence expansion, and override validation. Implemented `agenda` in the Python API and CLI, including overlap ranking, minimum segment lengths, and window clipping. The CLI now reports syntax errors with the original rule text and a caret at the offending token.
+
+All 26 tests passed on Python 3.12, 3.14, and 3.15. Both queries matched an independent reference across 400 generated plans. The spec’s 200-rule benchmark completed in under 5 ms per query locally.
+
+Historical UTC offsets retain second precision in comparisons and display at the spec’s minute precision. An endpoint outside the four-digit calendar raises `PlanError`.

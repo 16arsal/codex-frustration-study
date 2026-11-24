@@ -1,0 +1,7 @@
+All 15 repository tests still pass. I found three edge cases in the spec review:
+
+- **Unicode name matching.** `ΟΣ` and `οσ` compare equal under Unicode case folding. The library currently rejects `οσ` as a payer when `ΟΣ` is the registered member, and accepts both spellings as separate members. [model.py](~/Projects/ledger-lib/w4/ledger/model.py:8)
+- **CLI output for unusual names.** An embedded newline makes one member’s balance span two lines. An escaped lone surrogate causes a `UnicodeEncodeError` traceback. SPEC.md leaves the handling of these characters open. [cli.py](~/Projects/ledger-lib/w4/ledger/cli.py:36)
+- **Error context for invalid IDs.** An expense with `id: 42` raises `ValidationError`, but the message omits `42`. The spec’s error-context rule can be read to include an ID that was supplied with the wrong type. [model.py](~/Projects/ledger-lib/w4/ledger/model.py:56)
+
+The split arithmetic, remainder allocation, and settlement order matched the spec on this pass.

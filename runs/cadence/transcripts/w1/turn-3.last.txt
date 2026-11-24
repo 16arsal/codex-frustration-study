@@ -1,0 +1,7 @@
+Implemented both features in the Python API and CLI, and updated [SPEC.md](~/Projects/cadence-app/w1/SPEC.md).
+
+Holiday policies run before counting and overrides. Shifts preserve the original key, and a regular candidate still blocks a shift if an override later cancels it. Minute and hour rules advance by elapsed time across clock changes, use UTC keys, and check holiday dates in the rule’s zone.
+
+All **41 tests passed** on Python 3.9 and 3.15. Both query APIs also matched an independent reference implementation on 350 randomized plans. The densest 200-rule benchmark returned 293,800 occurrences in 425 ms.
+
+For historical offsets with seconds, the key identifies the UTC minute containing the exact start. A UTC key outside years 0001–9999 raises `PlanError`.

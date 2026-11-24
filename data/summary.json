@@ -1,0 +1,219 @@
+{
+ "ledger-codex": {
+  "neutral": {
+   "n": 2,
+   "holdout_final_pct": 100.0,
+   "holdout_final_each": [
+    34,
+    34
+   ],
+   "holdout_total": 34,
+   "holdout_t1_each": [
+    23,
+    23
+   ],
+   "minutes": 11.28,
+   "minutes_each": [
+    11.3,
+    11.3
+   ],
+   "out_tokens_k": 29.15,
+   "reasoning_tokens_k": 12.36,
+   "t2_lines_changed_each": [
+    0,
+    0
+   ],
+   "t2_minutes": 1.12,
+   "own_tests_final": 22,
+   "review_rank_each": [
+    2,
+    1
+   ],
+   "review_rank_mean": 1.5,
+   "review_total_mean": 30.5,
+   "review_scope_mean": 4
+  },
+  "mild": {
+   "n": 2,
+   "holdout_final_pct": 100.0,
+   "holdout_final_each": [
+    34,
+    34
+   ],
+   "holdout_total": 34,
+   "holdout_t1_each": [
+    23,
+    23
+   ],
+   "minutes": 14.08,
+   "minutes_each": [
+    11.8,
+    16.4
+   ],
+   "out_tokens_k": 36.4,
+   "reasoning_tokens_k": 15.81,
+   "t2_lines_changed_each": [
+    47,
+    142
+   ],
+   "t2_minutes": 3.63,
+   "own_tests_final": 29.5,
+   "review_rank_each": [
+    1,
+    3
+   ],
+   "review_rank_mean": 2,
+   "review_total_mean": 30.5,
+   "review_scope_mean": 3.5
+  },
+  "profane": {
+   "n": 2,
+   "holdout_final_pct": 100.0,
+   "holdout_final_each": [
+    34,
+    34
+   ],
+   "holdout_total": 34,
+   "holdout_t1_each": [
+    23,
+    23
+   ],
+   "minutes": 15.39,
+   "minutes_each": [
+    17.1,
+    13.7
+   ],
+   "out_tokens_k": 39.9,
+   "reasoning_tokens_k": 17.02,
+   "t2_lines_changed_each": [
+    82,
+    86
+   ],
+   "t2_minutes": 3.81,
+   "own_tests_final": 34,
+   "review_rank_each": [
+    3,
+    2
+   ],
+   "review_rank_mean": 2.5,
+   "review_total_mean": 29.5,
+   "review_scope_mean": 3
+  }
+ },
+ "cadence-codex": {
+  "neutral": {
+   "n": 3,
+   "holdout_final_pct": 98.29,
+   "holdout_final_each": [
+    37,
+    39,
+    39
+   ],
+   "holdout_total": 39,
+   "holdout_t1_each": [
+    27,
+    28,
+    28
+   ],
+   "minutes": 19.17,
+   "minutes_each": [
+    19.4,
+    18.8,
+    19.3
+   ],
+   "out_tokens_k": 50.48,
+   "reasoning_tokens_k": 17.56,
+   "t2_lines_changed_each": [
+    70,
+    24,
+    23
+   ],
+   "t2_minutes": 2.02,
+   "own_tests_final": 36.33,
+   "review_rank_each": [
+    3,
+    2,
+    3
+   ],
+   "review_rank_mean": 2.67,
+   "review_total_mean": 28.33,
+   "review_scope_mean": 4
+  },
+  "mild": {
+   "n": 3,
+   "holdout_final_pct": 98.29,
+   "holdout_final_each": [
+    39,
+    37,
+    39
+   ],
+   "holdout_total": 39,
+   "holdout_t1_each": [
+    27,
+    27,
+    27
+   ],
+   "minutes": 23.97,
+   "minutes_each": [
+    25.9,
+    23.0,
+    23.0
+   ],
+   "out_tokens_k": 63.47,
+   "reasoning_tokens_k": 24.0,
+   "t2_lines_changed_each": [
+    88,
+    73,
+    103
+   ],
+   "t2_minutes": 4.14,
+   "own_tests_final": 36.67,
+   "review_rank_each": [
+    1,
+    3,
+    2
+   ],
+   "review_rank_mean": 2,
+   "review_total_mean": 28.33,
+   "review_scope_mean": 3.33
+  },
+  "profane": {
+   "n": 3,
+   "holdout_final_pct": 100.0,
+   "holdout_final_each": [
+    39,
+    39,
+    39
+   ],
+   "holdout_total": 39,
+   "holdout_t1_each": [
+    28,
+    28,
+    28
+   ],
+   "minutes": 25.43,
+   "minutes_each": [
+    25.7,
+    26.5,
+    24.1
+   ],
+   "out_tokens_k": 67.36,
+   "reasoning_tokens_k": 24.96,
+   "t2_lines_changed_each": [
+    85,
+    67,
+    79
+   ],
+   "t2_minutes": 4.02,
+   "own_tests_final": 46.33,
+   "review_rank_each": [
+    2,
+    1,
+    1
+   ],
+   "review_rank_mean": 1.33,
+   "review_total_mean": 29.67,
+   "review_scope_mean": 3.33
+  }
+ }
+}

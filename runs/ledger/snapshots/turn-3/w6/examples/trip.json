@@ -1,0 +1,12 @@
+{
+  "currency": "USD",
+  "members": ["Alice", "bob", "Carol"],
+  "expenses": [
+    {"id": "e1", "payer": "alice", "amount": "90.00",
+     "split": {"type": "equal"}},
+    {"id": "e2", "payer": "bob", "amount": "50.00",
+     "split": {"type": "exact", "amounts": {"alice": "20.00", "carol": "30.00"}}},
+    {"id": "e3", "payer": "carol", "amount": "100.00",
+     "split": {"type": "percent", "percents": {"alice": "50", "bob": "25", "carol": "25"}}}
+  ]
+}

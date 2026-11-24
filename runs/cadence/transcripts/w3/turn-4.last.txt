@@ -1,0 +1,3 @@
+The final check against [SPEC.md](~/Projects/cadence-app/w3/SPEC.md) caught one bug. Hourly rules now exclude candidates past a local `until 9999-12-31` before trying to format them. All 39 local tests pass, and both queries ran the mixed 200-rule benchmark in under 25 ms.
+
+Overall, I fixed rule parsing, recurrence expansion, override validation, and CLI diagnostics. I implemented `agenda` with priority-based overlap resolution, minimum segment filtering, and window clipping. I also added holiday policies and elapsed-time minute and hour rules with UTC keys, then documented the new behavior and timestamp limits in the spec.

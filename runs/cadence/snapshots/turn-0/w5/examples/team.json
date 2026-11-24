@@ -1,0 +1,14 @@
+{
+  "timezone": "Europe/Berlin",
+  "min_segment": "10m",
+  "rules": [
+    {"id": "standup", "rule": "every week on mon,wed,fri at 09:30 for 15m from 2025-01-06"},
+    {"id": "review", "rule": "every 2 weeks on fri at 09:00 for 1h from 2025-01-10 times 6", "priority": 5},
+    {"id": "ny-sync", "rule": "every month on 1,last at 10:00 for 45m from 2025-01-01",
+     "timezone": "America/New_York"}
+  ],
+  "overrides": [
+    {"rule": "standup", "key": "2025-03-05", "action": "cancel"},
+    {"rule": "review", "key": "2025-01-24T09:00", "action": "move", "to": "2025-01-23T16:00", "for": "30m"}
+  ]
+}

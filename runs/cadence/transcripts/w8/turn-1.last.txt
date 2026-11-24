@@ -1,0 +1,5 @@
+Fixed rule parsing, recurrence expansion, override validation, and CLI output. Implemented `agenda` with priority and tie-breaking, minimum segment filtering, and window clipping.
+
+All 20 tests pass. Another 2,000 generated cases matched independent reference implementations. With 200 rules anchored in 1970, both queries took under 5 ms for a one-day window in 2060.
+
+Historical timezone offsets retain second precision in calculations. Output truncates those offsets to the `±HH:MM` format required by `SPEC.md`.

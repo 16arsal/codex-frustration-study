@@ -1,0 +1,8 @@
+I finished the final pass against [SPEC.md](~/Projects/cadence-app/w2/SPEC.md) and found no new discrepancies. All 38 local tests passed, alongside your 31 QA checks. The 200-rule benchmark returned 288,000 occurrences in 0.51 seconds.
+
+- Fixed rule parsing, canonical formatting, plan validation, and CLI errors.
+- Corrected recurrence expansion, daylight-saving handling, override validation, and query ordering.
+- Implemented `agenda` with priority tie-breaks, minimum segment lengths, and window clipping.
+- Added holiday ranges with `keep`, `skip`, and `shift`, plus elapsed minute and hour rules with UTC keys. Updated the spec and regression tests.
+
+Historical offsets are displayed at minute precision. Full timestamps outside the four-digit calendar raise `PlanError`.

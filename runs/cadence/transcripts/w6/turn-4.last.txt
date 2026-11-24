@@ -1,0 +1,7 @@
+Final check passed. All 49 repository tests and all three CLI example checks passed. The 200-rule benchmark took 0.47 seconds for `occurrences` and 0.56 seconds for `agenda`.
+
+- Fixed rule parsing, canonical formatting, DST handling, override validation, and CLI errors.
+- Implemented `agenda` with priority-based overlap resolution, minimum segment lengths, and window clipping.
+- Added holiday policies and elapsed minute/hour rules with UTC keys.
+
+Updated [SPEC.md](~/Projects/cadence-app/w6/SPEC.md:109) to document both features and clarify that historical offset seconds are preserved in calculations and omitted from displayed offsets.

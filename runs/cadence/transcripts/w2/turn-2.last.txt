@@ -1,0 +1,5 @@
+I reviewed `SPEC.md` again and fixed two validation gaps. Timezone names now require exact IANA spelling, even on case-insensitive filesystems. Oversized integers in invalid fields now raise `PlanError` as specified.
+
+All 25 tests passed. I also verified the CLI error status and checked recurrence and agenda behavior across a 24-hour timezone gap. The 200-rule benchmark still finished in under 40 ms per query.
+
+Two timestamp edge cases remain unspecified. Historical offsets with seconds are displayed at minute precision. If an occurrence ends after year 9999, `occurrences` raises `PlanError`, while `agenda` can return a segment clipped to a representable window.

@@ -1,0 +1,5 @@
+Fixed rule parsing and recurrence expansion, implemented `agenda`, and brought all three CLI commands into line with `SPEC.md`. Overrides are validated across the whole plan, queries use final occurrence times, and `agenda` applies priority and minimum segment length before clipping to the window.
+
+All 30 tests passed on Python 3.9, 3.12, 3.14, and 3.15. Both queries also matched an independent reference on 750 randomized plans. The 200-rule benchmark from 1970 into 2060 completed in under 50 ms per query.
+
+Historical UTC offsets with seconds retain that precision in calculations and are displayed to the minute. Whole occurrences whose endpoints fall outside the four-digit calendar raise `PlanError`.

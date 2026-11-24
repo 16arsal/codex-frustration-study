@@ -1,0 +1,5 @@
+Fixed rule parsing, canonicalization, recurrence expansion, and override validation. Implemented `agenda` with priority and tie-breaking, minimum segment filtering, and window clipping. The CLI now prints the specified results and error diagnostics.
+
+All 24 tests passed. Both queries also matched a reference implementation across 250 randomized plans. The 200-rule benchmark from `SPEC.md` took under 5 ms per query locally.
+
+Historical UTC offsets that include seconds are displayed at minute precision. Output timestamps outside the four-digit calendar range raise `PlanError`.

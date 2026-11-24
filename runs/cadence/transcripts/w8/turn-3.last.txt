@@ -1,0 +1,5 @@
+Implemented holiday policies and elapsed minute and hour rules in the library and CLI. Holiday filtering and shift collisions run before `times` and overrides. Shifted occurrences retain their original keys, and minute and hour occurrences use UTC keys. Updated [SPEC.md](~/Projects/cadence-app/w8/SPEC.md).
+
+All 33 repository tests pass, including CLI integration tests. Another 1,100 generated schedules matched independent reference implementations. The 200-rule, one-day benchmark completed in under 0.7 seconds for every case tested.
+
+The spec now records two boundary decisions. Historical elapsed starts use the UTC minute containing the instant as their key. A holiday shift with no destination in the four-digit calendar is dropped.

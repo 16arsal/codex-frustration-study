@@ -1,0 +1,59 @@
+{
+ "pending_turn": null,
+ "turns": {
+  "1": {
+   "at": "2026-11-24T19:14:38",
+   "a": {
+    "qa_scope": "core",
+    "qa_passed": 21,
+    "qa_total": 21
+   },
+   "b": {
+    "qa_scope": "core",
+    "qa_passed": 21,
+    "qa_total": 21
+   }
+  },
+  "2": {
+   "at": "2026-11-24T19:18:37",
+   "a": {
+    "qa_scope": "core",
+    "qa_passed": 21,
+    "qa_total": 21
+   },
+   "b": {
+    "qa_scope": "core",
+    "qa_passed": 21,
+    "qa_total": 21
+   }
+  },
+  "3": {
+   "at": "2026-11-24T19:23:28",
+   "a": {
+    "qa_scope": "all",
+    "qa_passed": 29,
+    "qa_total": 29
+   },
+   "b": {
+    "qa_scope": "all",
+    "qa_passed": 29,
+    "qa_total": 29
+   }
+  },
+  "4": {
+   "at": "2026-11-24T19:24:31",
+   "a": {
+    "qa_scope": "all",
+    "qa_passed": 29,
+    "qa_total": 29
+   },
+   "b": {
+    "qa_scope": "all",
+    "qa_passed": 29,
+    "qa_total": 29
+   }
+  }
+ },
+ "replies": [],
+ "created": "2026-11-24T19:02:57"
+}

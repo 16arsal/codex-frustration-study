@@ -1,0 +1,5 @@
+Implemented `agenda` in the Python API and CLI. Fixed rule parsing and syntax-error offsets, recurrence expansion across daylight-saving changes, override validation and application, and occurrence ordering. `agenda` now applies priority and minimum-segment rules before clipping to the query window.
+
+All 22 tests passed, and both APIs matched independent brute-force results on 600 randomized plans. The 200-rule benchmark spanning 1970 to 2060 took about 6 ms for `occurrences` and 4 ms for `agenda`.
+
+Historical timezone offsets with seconds are shortened to minutes in the output. A full occurrence whose timestamp falls outside years 0001–9999 raises `PlanError`.

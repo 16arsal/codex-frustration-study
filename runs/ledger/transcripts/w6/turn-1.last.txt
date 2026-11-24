@@ -1,0 +1,5 @@
+Fixed `ledger` and its CLI to match `SPEC.md`. Money calculations use integer cents, equal and percent splits distribute leftover cents by largest remainder with alphabetical ties, and `settle()` produces transfers in the specified order.
+
+The CLI now prints signed balances and `all settled` when appropriate. It exits with status `2` for validation errors and status `1` for file or JSON errors. Validation treats blank names and repeated participant names in exact or percent splits as errors after normalization.
+
+All 14 tests pass, and 500 randomized groups matched independent rounding and settlement calculations.

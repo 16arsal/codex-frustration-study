@@ -1,0 +1,7 @@
+Final check complete. I clarified name normalization and CLI escaping in [SPEC.md](~/Projects/ledger-lib/w5/SPEC.md). The final pass needed no code changes.
+
+- Fixed split rounding and validation using integer cents, and implemented settlement with alphabetical tie-breaking.
+- Added weighted `shares` splits and foreign-currency conversion with half-even rounding before splitting.
+- Corrected CLI output and exit codes, and added regression tests for the API and CLI.
+
+All 28 repository tests passed. Both CLI commands also produced the expected results for the combined currency and weighted-shares example.

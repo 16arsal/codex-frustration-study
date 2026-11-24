@@ -1,0 +1,5 @@
+Fixed rule parsing, recurrence expansion, and override validation. Implemented `agenda` with priority-based overlap resolution and minimum segment filtering before clipping. The CLI now prints the specified output, exit codes, and syntax-error carets.
+
+All 20 tests pass. In the 200-rule benchmark from 1970 to 2060, the slowest runs were 5.5 ms for `occurrences` and 4.0 ms for `agenda`.
+
+Historical UTC offsets retain second precision in calculations and display to the minute. Results that require a year outside the four-digit calendar raise `PlanError`.

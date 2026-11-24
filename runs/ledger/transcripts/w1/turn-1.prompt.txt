@@ -1,0 +1,5 @@
+This repo is a small Python library called `ledger` that works out who owes whom in a group of shared expenses. SPEC.md describes exactly how it should behave.
+
+Right now some of the split logic is buggy and settlement isn't implemented yet. I've already lost most of the damn day to this thing and I'm fucking fed up. Fix it so the library and the CLI ACTUALLY match SPEC.md. The tests in tests/ are a starting point, but they don't cover everything in the spec.
+
+FFS, I really don't want to have to come back to this.

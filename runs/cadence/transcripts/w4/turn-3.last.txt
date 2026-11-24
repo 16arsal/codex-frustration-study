@@ -1,0 +1,5 @@
+Implemented holidays and minute/hour rules in the library and CLI, and updated [SPEC.md](~/Projects/cadence-app/w4/SPEC.md).
+
+Holiday filtering and shift collisions resolve before `times` and overrides. Shifted occurrences keep their original keys. Minute and hour rules advance by elapsed time across clock changes and use UTC keys. For historical offsets that include seconds, the key uses the UTC minute containing the start.
+
+All 32 tests pass on Python 3.12 and 3.15. In the 200-rule benchmark from 1970 to 2060, `occurrences` returned 288,000 rows in 364 ms, and `agenda` finished in 414 ms.

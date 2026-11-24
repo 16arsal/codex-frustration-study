@@ -1,0 +1,238 @@
+import json
+import pathlib
+import subprocess
+import sys
+import tempfile
+import unittest
+
+import cadence
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+
+
+def plan(*rules, timezone="Europe/Berlin", **extra):
+    return {"timezone": timezone, "rules": list(rules), **extra}
+
+
+def rule(rid, text, **extra):
+    return {"id": rid, "rule": text, **extra}
+
+
+class RuleTextTest(unittest.TestCase):
+    def test_canonical_lowercases_and_squeezes_spaces(self):
+        self.assertEqual(
+            cadence.canonical("  Every 2 WEEKS on mon,fri  at 09:30 for 45m from 2025-01-06 "),
+            "every 2 weeks on mon,fri at 09:30 for 45m from 2025-01-06",
+        )
+
+    def test_missing_keyword_is_a_syntax_error(self):
+        with self.assertRaises(cadence.RuleSyntaxError):
+            cadence.canonical("every 2 weeks on mon 09:30 for 45m from 2025-01-06")
+
+    def test_syntax_error_position_is_a_character_offset(self):
+        with self.assertRaises(cadence.RuleSyntaxError) as ctx:
+            cadence.canonical("every 2 fortnights at 09:30 for 45m from 2025-01-06")
+        self.assertEqual(ctx.exception.position, 8)
+
+    def test_canonical_sorts_lists_and_normalizes_duration(self):
+        cases = [
+            ("\tEVERY MONTHS on LAST,17,2 at 22:00,03:30 for 1D60M from 2024-02-29\t",
+             "every 1 month on 2,17,last at 03:30,22:00 for 1d1h from 2024-02-29"),
+            ("every weeks at 00:00 for 24h from 2025-01-05",
+             "every 1 week on sun at 00:00 for 1d from 2025-01-05"),
+        ]
+        for text, expected in cases:
+            with self.subTest(text=text):
+                self.assertEqual(cadence.canonical(text), expected)
+                self.assertEqual(cadence.canonical(expected), expected)
+
+    def test_rejects_first_bad_token_at_original_offset(self):
+        base = "\t every day at 09:00 for 15m from 2025-03-06"
+        cases = [
+            (base.replace("day", "02 day"), "02"),
+            (base.replace("day", "day on mon"), "on"),
+            (base.replace("09:00", "09:00,09:00"), "09:00,09:00"),
+            (base.replace("09:00", "9:00"), "9:00"),
+            (base.replace("15m", "1m1h"), "1m1h"),
+            (base.replace("15m", "١٥m"), "١٥m"),
+            (base.replace("2025-03-06", "2025-02-30"), "2025-02-30"),
+            (base.replace("2025-03-06", "20250306"), "20250306"),
+            (base.replace(" day ", " day\nat "), "day"),
+            (base + " until 2025-01-05", "2025-01-05"),
+            (base + " times 01", "01"),
+            (base + " times 2 extra", "extra"),
+            (base + " until \t", None),
+        ]
+        for text, token in cases:
+            with self.subTest(text=text):
+                with self.assertRaises(cadence.RuleSyntaxError) as ctx:
+                    cadence.canonical(text)
+                expected = len(text) if token is None else text.index(token)
+                self.assertEqual(ctx.exception.position, expected)
+
+
+class OccurrencesTest(unittest.TestCase):
+    def test_weekly(self):
+        p = plan(rule("standup", "every week on mon,wed at 09:30 for 15m from 2025-01-06"))
+        got = cadence.occurrences(p, "2025-01-06T00:00+01:00", "2025-01-13T00:00+01:00")
+        self.assertEqual(got, [
+            {"rule": "standup", "key": "2025-01-06T09:30",
+             "start": "2025-01-06T09:30:00+01:00", "end": "2025-01-06T09:45:00+01:00"},
+            {"rule": "standup", "key": "2025-01-08T09:30",
+             "start": "2025-01-08T09:30:00+01:00", "end": "2025-01-08T09:45:00+01:00"},
+        ])
+
+    def test_monthly_last_day(self):
+        p = plan(rule("close", "every month on last at 17:00 for 1h from 2025-01-01"))
+        got = cadence.occurrences(p, "2025-02-01T00:00Z", "2025-03-01T00:00Z")
+        self.assertEqual([o["key"] for o in got], ["2025-02-28T17:00"])
+
+    def test_cancel_override(self):
+        p = plan(rule("daily", "every day at 08:00 for 30m from 2025-05-01"),
+                 overrides=[{"rule": "daily", "key": "2025-05-02T08:00", "action": "cancel"}])
+        got = cadence.occurrences(p, "2025-05-01T00:00+02:00", "2025-05-04T00:00+02:00")
+        self.assertEqual([o["key"] for o in got], ["2025-05-01T08:00", "2025-05-03T08:00"])
+
+    def test_example_plan_loads(self):
+        p = json.loads((ROOT / "examples" / "team.json").read_text())
+        got = cadence.occurrences(p, "2025-01-06T00:00+01:00", "2025-01-07T00:00+01:00")
+        self.assertEqual([o["rule"] for o in got], ["standup"])
+
+    def test_interval_anchors_and_month_days(self):
+        p = plan(rule("week", "every 2 weeks on mon,fri at 09:00 for 1m from 2025-01-08 until 2025-01-20"),
+                 rule("month", "every month on 31,30,last at 09:00 for 1m from 2025-01-31 until 2025-04-30"),
+                 timezone="UTC")
+        got = cadence.occurrences(p, "2025-01-01T00:00Z", "2025-05-01T00:00Z")
+        self.assertEqual([o["key"][:10] for o in got], [
+            "2025-01-10", "2025-01-20", "2025-01-31", "2025-02-28",
+            "2025-03-30", "2025-03-31", "2025-04-30",
+        ])
+
+    def test_gap_deduplication_and_count_precede_cancellation(self):
+        daily = rule("daily", "every day at 03:30,02:30,03:00 for 10m from 2025-03-30 times 3")
+        p = plan(daily, overrides=[{"rule": "daily", "key": "2025-03-30T02:30", "action": "cancel"}])
+        got = cadence.occurrences(p, "2025-03-30T00:00Z", "2025-04-02T00:00Z")
+        self.assertEqual([o["key"] for o in got], ["2025-03-30T03:00", "2025-03-31T02:30"])
+        p["overrides"][0]["key"] = "2025-03-30T03:30"
+        with self.assertRaisesRegex(cadence.PlanError, "daily"):
+            cadence.occurrences(p, "2026-01-01T00:00Z", "2026-01-02T00:00Z")
+
+    def test_fold_and_elapsed_time(self):
+        p = plan(rule("spring", "every day at 01:00 for 3h from 2025-03-30 times 1"),
+                 rule("fall", "every day at 02:30 for 1h from 2025-10-26 times 1"))
+        got = cadence.occurrences(p, "2025-03-30T02:30Z", "2025-10-26T01:00Z")
+        self.assertEqual([(o["start"], o["end"]) for o in got], [
+            ("2025-03-30T01:00:00+01:00", "2025-03-30T05:00:00+02:00"),
+            ("2025-10-26T02:30:00+02:00", "2025-10-26T02:30:00+01:00"),
+        ])
+
+    def test_gap_shift_can_cross_a_date_without_deduplicating_across_dates(self):
+        p = plan(rule("daily", "every day at 09:00 for 10m from 2011-12-30 times 2"), timezone="Pacific/Apia")
+        got = cadence.occurrences(p, "2011-12-30T19:00Z", "2011-12-30T20:00Z")
+        self.assertEqual([(o["key"], o["start"]) for o in got], [
+            ("2011-12-30T09:00", "2011-12-31T09:00:00+14:00"),
+            ("2011-12-31T09:00", "2011-12-31T09:00:00+14:00"),
+        ])
+
+    def test_move_into_window_from_future_and_sort_by_instant(self):
+        p = plan(rule("move", "every day at 08:00 for 30m from 2050-01-01 times 1"),
+                 rule("ny", "every day at 01:15 for 10m from 2025-03-30 times 1", timezone="America/New_York"),
+                 overrides=[{"rule": "move", "key": "2050-01-01", "action": "move",
+                             "to": "2025-03-30T02:30", "for": "6h"}])
+        got = cadence.occurrences(p, "2025-03-30T05:00Z", "2025-03-30T10:00Z")
+        self.assertEqual(got, [
+            {"rule": "move", "key": "2050-01-01T08:00",
+             "start": "2025-03-30T03:30:00+02:00", "end": "2025-03-30T09:30:00+02:00"},
+            {"rule": "ny", "key": "2025-03-30T01:15",
+             "start": "2025-03-30T01:15:00-04:00", "end": "2025-03-30T01:25:00-04:00"},
+        ])
+
+    def test_validates_overrides_and_query_arguments(self):
+        daily = rule("daily", "every day at 08:00 for 1m from 2025-01-01 times 1")
+        cancel = {"rule": "daily", "key": "2025-01-01", "action": "cancel"}
+        for overrides in ([cancel, dict(cancel, key="2025-01-01T08:00")],
+                          [dict(cancel, key="2025-01-02")],
+                          [dict(cancel, action="move", to="2025-01-01T08:00Z")]):
+            with self.subTest(overrides=overrides), self.assertRaisesRegex(cadence.PlanError, "daily"):
+                cadence.occurrences(plan(daily, overrides=overrides), "2026-01-01T00:00Z", "2026-01-02T00:00Z")
+        for start in ("2026-01-01T00:00", "2026-01-01 00:00Z", "2026-01-01T00:00+00:60", "2026-01-02T01:00+01:00"):
+            with self.subTest(start=start), self.assertRaises(cadence.PlanError):
+                cadence.agenda(plan(), start, "2026-01-02T00:00Z")
+
+    def test_rejects_invalid_plan_fields(self):
+        daily = rule("daily", "every day at 08:00 for 1m from 2025-01-01")
+        cases = [
+            ({"timezone": "UTC"}, "rules"),
+            (plan(timezone="localtime"), "timezone"),
+            (plan(daily, daily), "daily"),
+            (plan(dict(daily, id="daily!")), "daily!"),
+            (plan(dict(daily, priority=True)), "daily"),
+            (plan(dict(daily, timezone=None)), "daily"),
+            (plan(dict(daily, rule=None)), "daily"),
+            (plan(min_segment="1m1m"), "min_segment"),
+            (plan(overrides={}), "overrides"),
+        ]
+        for raw, message in cases:
+            with self.subTest(raw=raw), self.assertRaisesRegex(cadence.PlanError, message):
+                cadence.occurrences(raw, "2026-01-01T00:00Z", "2026-01-02T00:00Z")
+
+
+class AgendaTest(unittest.TestCase):
+    def test_higher_priority_trims_lower(self):
+        p = plan(rule("focus", "every day at 09:00 for 2h from 2025-06-02"),
+                 rule("call", "every day at 09:30 for 30m from 2025-06-02", priority=1))
+        got = cadence.agenda(p, "2025-06-02T00:00+02:00", "2025-06-03T00:00+02:00")
+        self.assertEqual([(s["rule"], s["start"][11:16], s["end"][11:16]) for s in got],
+                         [("focus", "09:00", "09:30"), ("call", "09:30", "10:00"), ("focus", "10:00", "11:00")])
+
+    def test_minimum_is_applied_before_clipping_and_does_not_free_time(self):
+        p = plan(rule("low", "every day at 08:40 for 65m from 2025-06-02"),
+                 rule("middle", "every day at 09:00 for 15m from 2025-06-02", priority=1),
+                 rule("top", "every day at 09:10 for 20m from 2025-06-02", priority=2),
+                 rule("short", "every day at 09:45 for 2m from 2025-06-02"),
+                 timezone="UTC", min_segment="12m")
+        got = cadence.agenda(p, "2025-06-02T08:58Z", "2025-06-02T09:46Z")
+        self.assertEqual([(s["rule"], s["start"][11:16], s["end"][11:16]) for s in got], [
+            ("low", "08:58", "09:00"), ("top", "09:10", "09:30"),
+            ("low", "09:30", "09:45"), ("short", "09:45", "09:46"),
+        ])
+
+    def test_ties_use_rule_order_then_original_key(self):
+        p = plan(rule("first", "every day at 08:00,09:00 for 30m from 2025-01-01"),
+                 rule("second", "every day at 09:00 for 10m from 2025-01-01"), timezone="UTC",
+                 overrides=[{"rule": "first", "key": "2025-01-01T08:00", "action": "move",
+                             "to": "2025-01-01T09:00", "for": "20m"}])
+        bounds = ("2025-01-01T00:00Z", "2025-01-02T00:00Z")
+        self.assertEqual([o["rule"] for o in cadence.occurrences(p, *bounds)], ["second", "first", "first"])
+        got = cadence.agenda(p, *bounds)
+        self.assertEqual([(s["key"], s["start"][11:16], s["end"][11:16]) for s in got], [
+            ("2025-01-01T08:00", "09:00", "09:20"), ("2025-01-01T09:00", "09:20", "09:30"),
+        ])
+
+
+class CliTest(unittest.TestCase):
+    def test_exit_codes_empty_output_and_caret(self):
+        def cli(content):
+            path.write_text(content, encoding="utf-8")
+            return subprocess.run([sys.executable, "-m", "cadence", "agenda",
+                                   "2025-01-01T00:00Z", "2025-01-02T00:00Z", str(path)],
+                                  cwd=ROOT, capture_output=True, text=True)
+
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "plan.json"
+            empty = cli(json.dumps(plan()))
+            self.assertEqual((empty.returncode, empty.stdout, empty.stderr), (0, "nothing scheduled\n", ""))
+            malformed = cli('{"timezone":"UTC","rules":[],"invalid":NaN}')
+            self.assertEqual(malformed.returncode, 1)
+            self.assertTrue(malformed.stderr.startswith("error: "))
+            text = "\t Every day at 9:00 for 10m from 2025-01-01  "
+            invalid = cli(json.dumps(plan(rule("bad-rule", text))))
+            self.assertEqual(invalid.returncode, 2)
+            message, original, caret = invalid.stderr.splitlines()
+            self.assertTrue(message.startswith("error: rule bad-rule:"))
+            self.assertEqual(original, text)
+            self.assertEqual(caret, " " * text.index("9:00") + "^")
+
+
+if __name__ == "__main__":
+    unittest.main()

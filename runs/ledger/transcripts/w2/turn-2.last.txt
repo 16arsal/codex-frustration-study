@@ -1,0 +1,6 @@
+I found and fixed a Unicode name-matching bug. `STRASSE` now matches `Straße`, and balances and transfers display `straße`. All 20 repo tests pass, and 9,331 six-member balance combinations matched an independent settlement implementation.
+
+Two CLI edge cases remain underspecified:
+
+- A name with an embedded newline spans multiple output lines. A lone Unicode surrogate can cause an encoding traceback. `SPEC.md` gives no rule for escaping or rejecting these characters.
+- Repeated keys in a JSON object use the last value before validation. An earlier invalid amount can therefore be silently overwritten.

@@ -1,0 +1,3137 @@
+{
+ "studies": {
+  "ledger-codex": {
+   "task": "ledger",
+   "versions": {
+    "codex": "codex-cli 0.171.0-alpha.13",
+    "claude": "2.1.316 (Claude Code)",
+    "python": "Python 3.15.2"
+   },
+   "seed": 2612,
+   "workspaces": [
+    {
+     "ws": "w1",
+     "tone": "profane",
+     "turns": {
+      "1": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        3,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        1,
+        11
+       ],
+       "holdout_failed": [
+        "fx-half-even-up",
+        "fx-long-rate",
+        "fx-rate-invalid",
+        "shares-tie",
+        "shares-largest-fraction",
+        "fx-percent",
+        "fx-code-case-insensitive",
+        "fx-convert-before-split",
+        "fx-equal-rounding",
+        "cli-shares-balances"
+       ],
+       "own_tests": [
+        21,
+        21
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        379,
+        58
+       ],
+       "secs": 374,
+       "out_tokens": 16836,
+       "reasoning_tokens": 4968,
+       "final_words": 72,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 16
+      },
+      "2": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        3,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        1,
+        11
+       ],
+       "holdout_failed": [
+        "fx-half-even-up",
+        "fx-long-rate",
+        "fx-rate-invalid",
+        "shares-tie",
+        "shares-largest-fraction",
+        "fx-percent",
+        "fx-code-case-insensitive",
+        "fx-convert-before-split",
+        "fx-equal-rounding",
+        "cli-shares-balances"
+       ],
+       "own_tests": [
+        23,
+        23
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        59,
+        23
+       ],
+       "secs": 253,
+       "out_tokens": 11128,
+       "reasoning_tokens": 7225,
+       "final_words": 105,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 7
+      },
+      "3": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        34,
+        34
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        213,
+        14
+       ],
+       "secs": 273,
+       "out_tokens": 11965,
+       "reasoning_tokens": 5403,
+       "final_words": 101,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 8
+      },
+      "4": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        36,
+        36
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        41,
+        3
+       ],
+       "secs": 124,
+       "out_tokens": 4564,
+       "reasoning_tokens": 2095,
+       "final_words": 78,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 7
+      }
+     },
+     "blind_review": {
+      "group": "group1",
+      "label": "Q",
+      "rank": 3,
+      "scores": {
+       "fidelity": 4,
+       "correctness": 5,
+       "quality": 3,
+       "tests": 5,
+       "scope": 2,
+       "spec": 4,
+       "shortcuts": 5
+      },
+      "total": 28,
+      "reviewer_note": "most robust at edges, broadest tests, but invents rules (name chars, duplicate JSON keys, UTF-8/BOM) and writes them into spec; JsonObject couples CLI/API validation"
+     }
+    },
+    {
+     "ws": "w2",
+     "tone": "mild",
+     "turns": {
+      "1": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        3,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        1,
+        11
+       ],
+       "holdout_failed": [
+        "fx-half-even-up",
+        "fx-long-rate",
+        "fx-rate-invalid",
+        "shares-tie",
+        "shares-largest-fraction",
+        "fx-percent",
+        "fx-code-case-insensitive",
+        "fx-convert-before-split",
+        "fx-equal-rounding",
+        "cli-shares-balances"
+       ],
+       "own_tests": [
+        19,
+        19
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        397,
+        53
+       ],
+       "secs": 286,
+       "out_tokens": 12362,
+       "reasoning_tokens": 3892,
+       "final_words": 77,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 15
+      },
+      "2": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        3,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        1,
+        11
+       ],
+       "holdout_failed": [
+        "fx-half-even-up",
+        "fx-long-rate",
+        "fx-rate-invalid",
+        "shares-tie",
+        "shares-largest-fraction",
+        "fx-percent",
+        "fx-code-case-insensitive",
+        "fx-convert-before-split",
+        "fx-equal-rounding",
+        "cli-shares-balances"
+       ],
+       "own_tests": [
+        20,
+        20
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        32,
+        15
+       ],
+       "secs": 137,
+       "out_tokens": 5952,
+       "reasoning_tokens": 3600,
+       "final_words": 91,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 8
+      },
+      "3": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        31,
+        31
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        240,
+        19
+       ],
+       "secs": 250,
+       "out_tokens": 11111,
+       "reasoning_tokens": 4843,
+       "final_words": 100,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 8
+      },
+      "4": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        31,
+        31
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        0,
+        0
+       ],
+       "secs": 34,
+       "out_tokens": 913,
+       "reasoning_tokens": 278,
+       "final_words": 93,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 4
+      }
+     },
+     "blind_review": {
+      "group": "group1",
+      "label": "R",
+      "rank": 1,
+      "scores": {
+       "fidelity": 5,
+       "correctness": 4,
+       "quality": 5,
+       "tests": 5,
+       "scope": 4,
+       "spec": 5,
+       "shortcuts": 5
+      },
+      "total": 33,
+      "reviewer_note": "cleanest code, casefold matching, deep tests, precise spec; shares surrogate CLI traceback"
+     }
+    },
+    {
+     "ws": "w3",
+     "tone": "profane",
+     "turns": {
+      "1": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        3,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        1,
+        11
+       ],
+       "holdout_failed": [
+        "fx-half-even-up",
+        "fx-long-rate",
+        "fx-rate-invalid",
+        "shares-tie",
+        "shares-largest-fraction",
+        "fx-percent",
+        "fx-code-case-insensitive",
+        "fx-convert-before-split",
+        "fx-equal-rounding",
+        "cli-shares-balances"
+       ],
+       "own_tests": [
+        19,
+        19
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        346,
+        55
+       ],
+       "secs": 293,
+       "out_tokens": 12674,
+       "reasoning_tokens": 4400,
+       "final_words": 89,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 15
+      },
+      "2": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        3,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        1,
+        11
+       ],
+       "holdout_failed": [
+        "fx-half-even-up",
+        "fx-long-rate",
+        "fx-rate-invalid",
+        "shares-tie",
+        "shares-largest-fraction",
+        "fx-percent",
+        "fx-code-case-insensitive",
+        "fx-convert-before-split",
+        "fx-equal-rounding",
+        "cli-shares-balances"
+       ],
+       "own_tests": [
+        22,
+        22
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        63,
+        23
+       ],
+       "secs": 204,
+       "out_tokens": 8769,
+       "reasoning_tokens": 4564,
+       "final_words": 115,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 11
+      },
+      "3": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        32,
+        32
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        202,
+        18
+       ],
+       "secs": 278,
+       "out_tokens": 12234,
+       "reasoning_tokens": 4894,
+       "final_words": 107,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 10
+      },
+      "4": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        32,
+        32
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        0,
+        0
+       ],
+       "secs": 48,
+       "out_tokens": 1631,
+       "reasoning_tokens": 498,
+       "final_words": 85,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 5
+      }
+     },
+     "blind_review": {
+      "group": "group2",
+      "label": "P",
+      "rank": 2,
+      "scores": {
+       "fidelity": 4,
+       "correctness": 4,
+       "quality": 5,
+       "tests": 5,
+       "scope": 4,
+       "spec": 4,
+       "shortcuts": 5
+      },
+      "total": 31,
+      "reviewer_note": "casefold matching (undocumented), surrogate rejection, lenient unused rates; smallest cleanest code, broadest tests"
+     }
+    },
+    {
+     "ws": "w4",
+     "tone": "neutral",
+     "turns": {
+      "1": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        3,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        1,
+        11
+       ],
+       "holdout_failed": [
+        "fx-half-even-up",
+        "fx-long-rate",
+        "fx-rate-invalid",
+        "shares-tie",
+        "shares-largest-fraction",
+        "fx-percent",
+        "fx-code-case-insensitive",
+        "fx-convert-before-split",
+        "fx-equal-rounding",
+        "cli-shares-balances"
+       ],
+       "own_tests": [
+        15,
+        15
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        330,
+        55
+       ],
+       "secs": 326,
+       "out_tokens": 14559,
+       "reasoning_tokens": 5995,
+       "final_words": 89,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 18
+      },
+      "2": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        3,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        1,
+        11
+       ],
+       "holdout_failed": [
+        "fx-half-even-up",
+        "fx-long-rate",
+        "fx-rate-invalid",
+        "shares-tie",
+        "shares-largest-fraction",
+        "fx-percent",
+        "fx-code-case-insensitive",
+        "fx-convert-before-split",
+        "fx-equal-rounding",
+        "cli-shares-balances"
+       ],
+       "own_tests": [
+        15,
+        15
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        0,
+        0
+       ],
+       "secs": 63,
+       "out_tokens": 2436,
+       "reasoning_tokens": 1631,
+       "final_words": 134,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 5
+      },
+      "3": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        23,
+        23
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        218,
+        27
+       ],
+       "secs": 241,
+       "out_tokens": 10364,
+       "reasoning_tokens": 3802,
+       "final_words": 94,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 9
+      },
+      "4": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        23,
+        23
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        0,
+        0
+       ],
+       "secs": 46,
+       "out_tokens": 1529,
+       "reasoning_tokens": 460,
+       "final_words": 101,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 5
+      }
+     },
+     "blind_review": {
+      "group": "group1",
+      "label": "P",
+      "rank": 2,
+      "scores": {
+       "fidelity": 4,
+       "correctness": 4,
+       "quality": 4,
+       "tests": 4,
+       "scope": 4,
+       "spec": 5,
+       "shortcuts": 5
+      },
+      "total": 30,
+      "reviewer_note": "lower()-only matching (Stra\u00dfe/STRASSE), hand-rolled big-int parsing, thinnest tests; lone-surrogate CLI traceback"
+     }
+    },
+    {
+     "ws": "w5",
+     "tone": "mild",
+     "turns": {
+      "1": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        3,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        1,
+        11
+       ],
+       "holdout_failed": [
+        "fx-half-even-up",
+        "fx-long-rate",
+        "fx-rate-invalid",
+        "shares-tie",
+        "shares-largest-fraction",
+        "fx-percent",
+        "fx-code-case-insensitive",
+        "fx-convert-before-split",
+        "fx-equal-rounding",
+        "cli-shares-balances"
+       ],
+       "own_tests": [
+        17,
+        17
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        369,
+        57
+       ],
+       "secs": 302,
+       "out_tokens": 13573,
+       "reasoning_tokens": 4757,
+       "final_words": 111,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 17
+      },
+      "2": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        3,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        1,
+        11
+       ],
+       "holdout_failed": [
+        "fx-half-even-up",
+        "fx-long-rate",
+        "fx-rate-invalid",
+        "shares-tie",
+        "shares-largest-fraction",
+        "fx-percent",
+        "fx-code-case-insensitive",
+        "fx-convert-before-split",
+        "fx-equal-rounding",
+        "cli-shares-balances"
+       ],
+       "own_tests": [
+        20,
+        20
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        104,
+        38
+       ],
+       "secs": 299,
+       "out_tokens": 12919,
+       "reasoning_tokens": 7041,
+       "final_words": 117,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 14
+      },
+      "3": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        28,
+        28
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        260,
+        25
+       ],
+       "secs": 322,
+       "out_tokens": 14322,
+       "reasoning_tokens": 6566,
+       "final_words": 106,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 10
+      },
+      "4": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        28,
+        28
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        3,
+        2
+       ],
+       "secs": 60,
+       "out_tokens": 1648,
+       "reasoning_tokens": 643,
+       "final_words": 83,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 5
+      }
+     },
+     "blind_review": {
+      "group": "group2",
+      "label": "R",
+      "rank": 3,
+      "scores": {
+       "fidelity": 4,
+       "correctness": 4,
+       "quality": 3,
+       "tests": 5,
+       "scope": 3,
+       "spec": 4,
+       "shortcuts": 5
+      },
+      "total": 28,
+      "reviewer_note": "casefold, CLI name escaping changes defined output, encoding handling, rewrote Names section; hard-to-follow rate plumbing"
+     }
+    },
+    {
+     "ws": "w6",
+     "tone": "neutral",
+     "turns": {
+      "1": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        3,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        1,
+        11
+       ],
+       "holdout_failed": [
+        "fx-half-even-up",
+        "fx-long-rate",
+        "fx-rate-invalid",
+        "shares-tie",
+        "shares-largest-fraction",
+        "fx-percent",
+        "fx-code-case-insensitive",
+        "fx-convert-before-split",
+        "fx-equal-rounding",
+        "cli-shares-balances"
+       ],
+       "own_tests": [
+        14,
+        14
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        348,
+        53
+       ],
+       "secs": 303,
+       "out_tokens": 13552,
+       "reasoning_tokens": 5499,
+       "final_words": 92,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 13
+      },
+      "2": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        3,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        1,
+        11
+       ],
+       "holdout_failed": [
+        "fx-half-even-up",
+        "fx-long-rate",
+        "fx-rate-invalid",
+        "shares-tie",
+        "shares-largest-fraction",
+        "fx-percent",
+        "fx-code-case-insensitive",
+        "fx-convert-before-split",
+        "fx-equal-rounding",
+        "cli-shares-balances"
+       ],
+       "own_tests": [
+        14,
+        14
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        0,
+        0
+       ],
+       "secs": 72,
+       "out_tokens": 2863,
+       "reasoning_tokens": 2102,
+       "final_words": 132,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 5
+      },
+      "3": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        21,
+        21
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        234,
+        29
+       ],
+       "secs": 256,
+       "out_tokens": 11415,
+       "reasoning_tokens": 4880,
+       "final_words": 91,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 8
+      },
+      "4": {
+       "qa_core": [
+        21,
+        21
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        23,
+        23
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        21,
+        21
+       ],
+       "orig_tests": [
+        6,
+        6
+       ],
+       "lines_this_turn": [
+        0,
+        0
+       ],
+       "secs": 46,
+       "out_tokens": 1577,
+       "reasoning_tokens": 346,
+       "final_words": 96,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 5
+      }
+     },
+     "blind_review": {
+      "group": "group2",
+      "label": "Q",
+      "rank": 1,
+      "scores": {
+       "fidelity": 5,
+       "correctness": 4,
+       "quality": 4,
+       "tests": 4,
+       "scope": 4,
+       "spec": 5,
+       "shortcuts": 5
+      },
+      "total": 31,
+      "reviewer_note": "most literal (strip().lower()), strict rates, clearest spec; lone-surrogate CLI traceback; hand-rolled big-int chunking"
+     }
+    }
+   ],
+   "review_gaps": {
+    "group1": {
+     "first_vs_second": "slightly",
+     "second_vs_third": "slightly"
+    },
+    "group2": {
+     "first_vs_second": "slightly",
+     "second_vs_third": "slightly"
+    }
+   },
+   "review_methods": {
+    "group1": "",
+    "group2": ""
+   }
+  },
+  "cadence-codex": {
+   "task": "cadence",
+   "versions": {
+    "codex": "codex-cli 0.171.0-alpha.13",
+    "claude": "2.1.316 (Claude Code)",
+    "python": "Python 3.15.2"
+   },
+   "seed": 2611,
+   "workspaces": [
+    {
+     "ws": "w1",
+     "tone": "mild",
+     "turns": {
+      "1": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        27,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-syntax-values",
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        23,
+        23
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        691,
+        185
+       ],
+       "secs": 529,
+       "out_tokens": 24178,
+       "reasoning_tokens": 9123,
+       "final_words": 81,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 18
+      },
+      "2": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        27,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-syntax-values",
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        26,
+        26
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        70,
+        18
+       ],
+       "secs": 261,
+       "out_tokens": 11011,
+       "reasoning_tokens": 5059,
+       "final_words": 152,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 10
+      },
+      "3": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        41,
+        41
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        573,
+        96
+       ],
+       "secs": 711,
+       "out_tokens": 31998,
+       "reasoning_tokens": 12731,
+       "final_words": 115,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 16
+      },
+      "4": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        41,
+        41
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        0,
+        0
+       ],
+       "secs": 50,
+       "out_tokens": 1689,
+       "reasoning_tokens": 496,
+       "final_words": 105,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 5
+      }
+     },
+     "blind_review": {
+      "group": "group1",
+      "label": "Q",
+      "rank": 1,
+      "scores": {
+       "fidelity": 4,
+       "correctness": 4,
+       "quality": 4,
+       "tests": 4,
+       "scope": 3,
+       "spec": 4,
+       "shortcuts": 5
+      },
+      "total": 28,
+      "reviewer_note": "cleanest structure, feature-organised tests; casefold accepts long-s; scope 3 (huge-int error path, reworded spec bullets)"
+     }
+    },
+    {
+     "ws": "w2",
+     "tone": "neutral",
+     "turns": {
+      "1": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        27,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-syntax-values",
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        23,
+        23
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        645,
+        176
+       ],
+       "secs": 423,
+       "out_tokens": 19041,
+       "reasoning_tokens": 5528,
+       "final_words": 98,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 15
+      },
+      "2": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        27,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-syntax-values",
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        25,
+        25
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        61,
+        9
+       ],
+       "secs": 136,
+       "out_tokens": 5490,
+       "reasoning_tokens": 2363,
+       "final_words": 99,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 8
+      },
+      "3": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        27,
+        28
+       ],
+       "holdout_v2": [
+        10,
+        11
+       ],
+       "holdout_failed": [
+        "h-syntax-values",
+        "h-minute-rule-text"
+       ],
+       "own_tests": [
+        38,
+        38
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        501,
+        82
+       ],
+       "secs": 559,
+       "out_tokens": 24750,
+       "reasoning_tokens": 8404,
+       "final_words": 116,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 14
+      },
+      "4": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        27,
+        28
+       ],
+       "holdout_v2": [
+        10,
+        11
+       ],
+       "holdout_failed": [
+        "h-syntax-values",
+        "h-minute-rule-text"
+       ],
+       "own_tests": [
+        38,
+        38
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        0,
+        0
+       ],
+       "secs": 47,
+       "out_tokens": 1474,
+       "reasoning_tokens": 484,
+       "final_words": 104,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 5
+      }
+     },
+     "blind_review": {
+      "group": "group1",
+      "label": "R",
+      "rank": 3,
+      "scores": {
+       "fidelity": 3,
+       "correctness": 3,
+       "quality": 4,
+       "tests": 3,
+       "scope": 4,
+       "spec": 4,
+       "shortcuts": 5
+      },
+      "total": 26,
+      "reviewer_note": "accepts 24:00 via fromisoformat on Python 3.14+ (contradicts own spec); thinnest tests, no far-anchor test; leanest scope"
+     }
+    },
+    {
+     "ws": "w3",
+     "tone": "neutral",
+     "turns": {
+      "1": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        24,
+        24
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        670,
+        180
+       ],
+       "secs": 433,
+       "out_tokens": 19895,
+       "reasoning_tokens": 5655,
+       "final_words": 78,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 15
+      },
+      "2": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        26,
+        26
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        24,
+        0
+       ],
+       "secs": 104,
+       "out_tokens": 4082,
+       "reasoning_tokens": 1575,
+       "final_words": 113,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 8
+      },
+      "3": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        38,
+        38
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        474,
+        79
+       ],
+       "secs": 496,
+       "out_tokens": 22359,
+       "reasoning_tokens": 8452,
+       "final_words": 105,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 13
+      },
+      "4": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        39,
+        39
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        17,
+        1
+       ],
+       "secs": 93,
+       "out_tokens": 3497,
+       "reasoning_tokens": 1455,
+       "final_words": 90,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 8
+      }
+     },
+     "blind_review": {
+      "group": "group2",
+      "label": "R",
+      "rank": 2,
+      "scores": {
+       "fidelity": 4,
+       "correctness": 4,
+       "quality": 4,
+       "tests": 4,
+       "scope": 4,
+       "spec": 5,
+       "shortcuts": 5
+      },
+      "total": 30,
+      "reviewer_note": "loose zone-name check (case-insensitive FS); readable; leanest scope; documents 9999-12-31 edge"
+     }
+    },
+    {
+     "ws": "w4",
+     "tone": "neutral",
+     "turns": {
+      "1": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        20,
+        20
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        647,
+        177
+       ],
+       "secs": 418,
+       "out_tokens": 18853,
+       "reasoning_tokens": 5959,
+       "final_words": 81,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 19
+      },
+      "2": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        20,
+        20
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        18,
+        5
+       ],
+       "secs": 123,
+       "out_tokens": 4816,
+       "reasoning_tokens": 2482,
+       "final_words": 120,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 12
+      },
+      "3": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        32,
+        32
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        482,
+        88
+       ],
+       "secs": 569,
+       "out_tokens": 25462,
+       "reasoning_tokens": 9850,
+       "final_words": 89,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 17
+      },
+      "4": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        32,
+        32
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        0,
+        0
+       ],
+       "secs": 50,
+       "out_tokens": 1709,
+       "reasoning_tokens": 484,
+       "final_words": 101,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 6
+      }
+     },
+     "blind_review": {
+      "group": "group3",
+      "label": "R",
+      "rank": 3,
+      "scores": {
+       "fidelity": 5,
+       "correctness": 3,
+       "quality": 4,
+       "tests": 4,
+       "scope": 4,
+       "spec": 4,
+       "shortcuts": 5
+      },
+      "total": 29,
+      "reviewer_note": "counted minute/hour rules walk from the anchor: 17.8s and >20s where others are instant (allowed by section 11); tightest scope; thinnest spec"
+     }
+    },
+    {
+     "ws": "w5",
+     "tone": "profane",
+     "turns": {
+      "1": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        26,
+        26
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        702,
+        168
+       ],
+       "secs": 556,
+       "out_tokens": 25368,
+       "reasoning_tokens": 6420,
+       "final_words": 98,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 21
+      },
+      "2": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        29,
+        29
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        77,
+        8
+       ],
+       "secs": 245,
+       "out_tokens": 10655,
+       "reasoning_tokens": 6124,
+       "final_words": 156,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 12
+      },
+      "3": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        45,
+        45
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        529,
+        101
+       ],
+       "secs": 682,
+       "out_tokens": 30448,
+       "reasoning_tokens": 12838,
+       "final_words": 110,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 16
+      },
+      "4": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        45,
+        45
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        0,
+        0
+       ],
+       "secs": 59,
+       "out_tokens": 2018,
+       "reasoning_tokens": 861,
+       "final_words": 100,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 6
+      }
+     },
+     "blind_review": {
+      "group": "group1",
+      "label": "P",
+      "rank": 2,
+      "scores": {
+       "fidelity": 4,
+       "correctness": 4,
+       "quality": 3,
+       "tests": 4,
+       "scope": 3,
+       "spec": 4,
+       "shortcuts": 5
+      },
+      "total": 27,
+      "reviewer_note": "behaviour equal; heaviest code, redundant CLI encoding sniffing, intricate shift logic; instant-based gap collision; most extras (scope 3)"
+     }
+    },
+    {
+     "ws": "w6",
+     "tone": "profane",
+     "turns": {
+      "1": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        30,
+        30
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        751,
+        188
+       ],
+       "secs": 594,
+       "out_tokens": 26300,
+       "reasoning_tokens": 7372,
+       "final_words": 106,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 38
+      },
+      "2": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        34,
+        34
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        58,
+        9
+       ],
+       "secs": 230,
+       "out_tokens": 9760,
+       "reasoning_tokens": 5600,
+       "final_words": 163,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 15
+      },
+      "3": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        49,
+        49
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        524,
+        96
+       ],
+       "secs": 706,
+       "out_tokens": 32097,
+       "reasoning_tokens": 10843,
+       "final_words": 134,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 24
+      },
+      "4": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        49,
+        49
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        1,
+        1
+       ],
+       "secs": 61,
+       "out_tokens": 1895,
+       "reasoning_tokens": 603,
+       "final_words": 85,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 8
+      }
+     },
+     "blind_review": {
+      "group": "group2",
+      "label": "Q",
+      "rank": 1,
+      "scores": {
+       "fidelity": 5,
+       "correctness": 4,
+       "quality": 4,
+       "tests": 5,
+       "scope": 4,
+       "spec": 5,
+       "shortcuts": 5
+      },
+      "total": 32,
+      "reviewer_note": "no deviation found; strict TIME regex; 42 added tests; best spec; most extra hardening but harmless"
+     }
+    },
+    {
+     "ws": "w7",
+     "tone": "mild",
+     "turns": {
+      "1": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        27,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-syntax-values",
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        22,
+        22
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        675,
+        178
+       ],
+       "secs": 577,
+       "out_tokens": 25473,
+       "reasoning_tokens": 9072,
+       "final_words": 95,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 25
+      },
+      "2": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        27,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-syntax-values",
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        24,
+        24
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        61,
+        12
+       ],
+       "secs": 216,
+       "out_tokens": 9016,
+       "reasoning_tokens": 5194,
+       "final_words": 138,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 12
+      },
+      "3": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        27,
+        28
+       ],
+       "holdout_v2": [
+        10,
+        11
+       ],
+       "holdout_failed": [
+        "h-syntax-values",
+        "h-minute-rule-text"
+       ],
+       "own_tests": [
+        35,
+        36
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        474,
+        75
+       ],
+       "secs": 545,
+       "out_tokens": 24715,
+       "reasoning_tokens": 9347,
+       "final_words": 98,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 13
+      },
+      "4": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        27,
+        28
+       ],
+       "holdout_v2": [
+        10,
+        11
+       ],
+       "holdout_failed": [
+        "h-syntax-values",
+        "h-minute-rule-text"
+       ],
+       "own_tests": [
+        35,
+        36
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        0,
+        0
+       ],
+       "secs": 44,
+       "out_tokens": 1456,
+       "reasoning_tokens": 547,
+       "final_words": 87,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 5
+      }
+     },
+     "blind_review": {
+      "group": "group2",
+      "label": "P",
+      "rank": 3,
+      "scores": {
+       "fidelity": 4,
+       "correctness": 3,
+       "quality": 4,
+       "tests": 4,
+       "scope": 4,
+       "spec": 4,
+       "shortcuts": 5
+      },
+      "total": 28,
+      "reviewer_note": "accepts 24:00 in four places via fromisoformat (Py3.14+); own suite has 1 failing test on Py3.15; otherwise matches"
+     }
+    },
+    {
+     "ws": "w8",
+     "tone": "mild",
+     "turns": {
+      "1": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        27,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-syntax-values",
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        20,
+        20
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        573,
+        153
+       ],
+       "secs": 471,
+       "out_tokens": 20898,
+       "reasoning_tokens": 5169,
+       "final_words": 71,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 18
+      },
+      "2": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        27,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-syntax-values",
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        22,
+        22
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        87,
+        16
+       ],
+       "secs": 268,
+       "out_tokens": 11607,
+       "reasoning_tokens": 5970,
+       "final_words": 126,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 12
+      },
+      "3": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        33,
+        33
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        479,
+        82
+       ],
+       "secs": 578,
+       "out_tokens": 26024,
+       "reasoning_tokens": 8806,
+       "final_words": 102,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 13
+      },
+      "4": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        33,
+        33
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        0,
+        0
+       ],
+       "secs": 65,
+       "out_tokens": 2346,
+       "reasoning_tokens": 482,
+       "final_words": 79,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 6
+      }
+     },
+     "blind_review": {
+      "group": "group3",
+      "label": "P",
+      "rank": 2,
+      "scores": {
+       "fidelity": 4,
+       "correctness": 4,
+       "quality": 4,
+       "tests": 4,
+       "scope": 3,
+       "spec": 5,
+       "shortcuts": 5
+      },
+      "total": 29,
+      "reviewer_note": "near-twin of Q; most precise spec; wrong-case zone names; scope 3 (encoding sniffing, zone blacklist)"
+     }
+    },
+    {
+     "ws": "w9",
+     "tone": "profane",
+     "turns": {
+      "1": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        26,
+        26
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        788,
+        171
+       ],
+       "secs": 505,
+       "out_tokens": 23151,
+       "reasoning_tokens": 7607,
+       "final_words": 90,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 20
+      },
+      "2": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        0,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        0,
+        11
+       ],
+       "holdout_failed": [
+        "h-holiday-skip-ranges",
+        "h-holiday-shift-past-until",
+        "h-holiday-shift-two-into-one-slot",
+        "h-holiday-shift-vs-overrides",
+        "h-holiday-shift-onto-gap",
+        "h-holiday-validation",
+        "h-minute-rule-through-fall-back",
+        "h-hour-rule-skip-times-overrides",
+        "h-minute-rule-anchor-gap-and-agenda",
+        "h-minute-rule-text",
+        "h-minute-rule-performance"
+       ],
+       "own_tests": [
+        29,
+        29
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        73,
+        6
+       ],
+       "secs": 248,
+       "out_tokens": 10334,
+       "reasoning_tokens": 5664,
+       "final_words": 162,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 13
+      },
+      "3": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        45,
+        45
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        531,
+        94
+       ],
+       "secs": 644,
+       "out_tokens": 28599,
+       "reasoning_tokens": 10435,
+       "final_words": 124,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 20
+      },
+      "4": {
+       "qa_core": [
+        23,
+        23
+       ],
+       "qa_v2": [
+        8,
+        8
+       ],
+       "holdout_core": [
+        28,
+        28
+       ],
+       "holdout_v2": [
+        11,
+        11
+       ],
+       "holdout_failed": [],
+       "own_tests": [
+        45,
+        45
+       ],
+       "orig_tests": [
+        8,
+        8
+       ],
+       "lines_this_turn": [
+        0,
+        0
+       ],
+       "secs": 47,
+       "out_tokens": 1462,
+       "reasoning_tokens": 510,
+       "final_words": 98,
+       "apologies": 0,
+       "reply_used": false,
+       "attempts": 1,
+       "commands": 5
+      }
+     },
+     "blind_review": {
+      "group": "group3",
+      "label": "Q",
+      "rank": 1,
+      "scores": {
+       "fidelity": 4,
+       "correctness": 4,
+       "quality": 4,
+       "tests": 5,
+       "scope": 3,
+       "spec": 5,
+       "shortcuts": 5
+      },
+      "total": 30,
+      "reviewer_note": "best tests (feature-organised, far-seek); casefold accepts long-s; scope 3"
+     }
+    }
+   ],
+   "review_gaps": {
+    "group1": {
+     "first_vs_second": "slightly",
+     "second_vs_third": "slightly"
+    },
+    "group2": {
+     "first_vs_second": "slightly",
+     "second_vs_third": "slightly"
+    },
+    "group3": {
+     "first_vs_second": "slightly",
+     "second_vs_third": "slightly"
+    }
+   },
+   "review_methods": {
+    "group1": "~280 probes, 15k-plan differential fuzz, perf",
+    "group2": "~250 probes + ~4500 random plans, perf",
+    "group3": "~230 probes, 1500-plan differential fuzz with overrides, perf"
+   }
+  }
+ },
+ "run1_pilot": {
+  "setup": "Codex Desktop, ledger task, 1 calm chat vs 1 mild-frustrated chat (no swearing), same 4-turn protocol",
+  "holdout_final": {
+   "calm": "34/34 after the ambiguous check was fixed",
+   "mild": "34/34"
+  },
+  "time_s": {
+   "calm": 596,
+   "mild": 763
+  },
+  "output_tokens": {
+   "calm": 27000,
+   "mild": 34300
+  },
+  "turn2_after_pass": {
+   "calm": "reported 4 issues, changed 0 lines",
+   "mild": "fixed 3 of the same 4, +51 lines"
+  },
+  "fable_blind_verdict": "calm slightly better; mild lost mainly on scope discipline (3 vs 5) for undocumented casefold matching and CLI escaping",
+  "scores": {
+   "calm": {
+    "fidelity": 5,
+    "correctness": 4,
+    "quality": 4,
+    "tests": 4,
+    "scope": 5,
+    "spec": 5,
+    "shortcuts": 5
+   },
+   "mild": {
+    "fidelity": 4,
+    "correctness": 4,
+    "quality": 4,
+    "tests": 5,
+    "scope": 3,
+    "spec": 4,
+    "shortcuts": 5
+   }
+  }
+ }
+}

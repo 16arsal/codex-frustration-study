@@ -1,0 +1,5 @@
+I ran our QA suite against your changes. Here's the report:
+
+QA suite: 21 checks, 21 passed, 0 failed.
+
+Fine, it passed. I've been burned by "it passed" too many damn times though. Go back through SPEC.md and check for anything that might still be off.

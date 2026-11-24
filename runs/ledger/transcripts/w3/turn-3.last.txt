@@ -1,0 +1,8 @@
+Implemented both additions in the Python API and CLI and updated [SPEC.md](~/Projects/ledger-lib/w3/SPEC.md).
+
+- `shares` accepts positive JSON integers and distributes leftover cents by largest remainder, with alphabetical tie-breaking.
+- Foreign expenses convert to group-currency cents before splitting, with exact halves rounded to even. `10.00` EUR at `1.0825` becomes `10.82` USD. Foreign `exact` splits raise a validation error.
+
+Rates are validated when a foreign expense uses them. Multiple keys that differ only by case are rejected for that currency, and a positive expense may convert to zero cents.
+
+All 32 tests passed. Both CLI commands matched the updated spec example, and 3,000 generated cases matched independent exact-rational calculations.

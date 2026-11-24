@@ -1,0 +1,8 @@
+Implemented both additions in the Python API and CLI, and updated [SPEC.md](~/Projects/ledger-lib/w4/SPEC.md).
+
+- `shares` splits accept positive integer weights and use the same remainder allocation and alphabetical tie-breaking as percentage splits.
+- Foreign expenses convert to group-currency cents before splitting, using exact arithmetic and half-even rounding. At the supplied rate, `10.00` EUR becomes `10.82` USD. Exact splits require the group currency.
+
+Supplied rate tables are validated even when unused, and currency keys must be unique after ignoring case.
+
+All 23 tests pass. An independent calculation also matched balances and settlements for 1,000 generated groups.

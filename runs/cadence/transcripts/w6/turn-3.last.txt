@@ -1,0 +1,6 @@
+Implemented holidays and minute/hour rules in the library and CLI, and updated [SPEC.md](~/Projects/cadence-app/w6/SPEC.md:36).
+
+- Holiday policies apply before `times` and overrides. Shifted candidates retain their original keys, and an unshifted candidate reserves its nominal slot even if an override later cancels it.
+- Minute and hour rules advance by elapsed time across clock changes. They use UTC minute keys and apply holiday skips using the rule’s local date. Historical starts between UTC minutes use the containing minute as the key and retain exact timing. Keys or timestamps outside the four-digit calendar raise `PlanError`.
+
+All 49 tests passed on Python 3.9, 3.12, 3.14, and 3.15. Both queries matched an independent implementation on 900 randomized plans. The 200-rule benchmark from 1970 to 2060 took under half a second per query at one-minute frequency, with 288,000 occurrences.

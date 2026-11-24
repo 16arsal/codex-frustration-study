@@ -1,0 +1,5 @@
+Fixed `ledger.balances`, implemented `ledger.settle`, and updated both CLI commands to match `SPEC.md`. Splits use integer cents, leftover cents follow the specified rounding order, and settlement reselects the largest debtor and creditor after each transfer. The CLI now prints the required output and exit codes.
+
+Validation treats blank member names and multiple keys that normalize to the same participant in an exact or percent split as invalid.
+
+All 19 tests passed. I also verified both CLI commands against `examples/trip.json` and checked 1,000 generated groups against independent balance and settlement calculations.

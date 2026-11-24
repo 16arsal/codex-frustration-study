@@ -1,0 +1,8 @@
+I found and fixed two issues in the spec review. Timezone names now require exact IANA spelling even on case-insensitive filesystems. On Python 3.12, deeply nested malformed JSON now produces the required `error:` line and exits with status 1.
+
+Two timestamp edge cases remain unspecified:
+
+- Historical UTC offsets can include seconds, which `±HH:MM` cannot represent exactly. In a Berlin 1850 test, adjacent agenda segments appeared to overlap by 28 seconds when their timestamp strings were parsed.
+- A valid duration can push an occurrence’s end into year 10000, beyond the required four-digit format. `occurrences` raises `PlanError` in that case. `agenda` can still return a segment clipped to year 9999.
+
+All 20 repository tests pass on Python 3.12 and 3.15.

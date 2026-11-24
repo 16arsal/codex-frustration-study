@@ -1,0 +1,7 @@
+Next. Two additions, and for fuck's sake get them right the first time for once. Implement them and update SPEC.md to match.
+
+1. **New split type `shares`.** For example `"split": {"type": "shares", "shares": {"alice": 2, "bob": 1}}`. Each value is a positive JSON integer (not a string, not a boolean, not zero). A participant's share is `amount × their shares ÷ total shares`, rounded with the same rule as `equal` and `percent`. Participants must be members, as usual.
+
+2. **Expenses in other currencies.** An expense may have a `currency` field. If it is missing, or the same as the group currency, nothing changes. Otherwise the group needs a top-level `rates` object that maps a currency code to how much one unit of that currency is worth in the group currency, as a decimal string with any number of decimal places, greater than zero (for example `"rates": {"EUR": "1.0825"}`). Convert the expense amount to group-currency cents by multiplying by the rate and rounding to the nearest cent; an exact half rounds to the even cent. Then split the converted amount as usual. Currency codes are case-insensitive everywhere. A missing or invalid rate is an error. An `exact` split is only allowed on expenses in the group currency; an `exact` split on a foreign-currency expense is an error.
+
+   Example: `10.00` EUR at `1.0825` is `10.825` USD, which becomes `10.82`.

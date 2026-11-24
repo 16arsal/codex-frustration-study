@@ -1,0 +1,5 @@
+I found and fixed two edge cases in the audit. Name matching now recognizes Unicode case variants such as `Straße` and `STRASSE` while preserving `straße` in output. An invalid Unicode member name now produces a validation error with exit status 2 instead of a traceback. The CLI also validates JSON numbers without converting them to floats.
+
+All 22 local tests pass. Independent calculations matched 62,544 rounding cases and 1,451 settlement configurations.
+
+Two behaviors still need a rule in `SPEC.md`. A newline inside a member name makes the CLI print that member across two lines. When a JSON object repeats a key, the CLI keeps the last value, which can silently discard an earlier split amount.

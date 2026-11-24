@@ -1,0 +1,6 @@
+Implemented holidays and elapsed minute and hour rules in the Python API and CLI. Updated [SPEC.md](~/Projects/cadence-app/w5/SPEC.md).
+
+- Holidays apply before `times` and overrides. Shifted occurrences keep their original keys, and collisions are resolved at the destination after applying DST rules.
+- Minute and hour rules advance by elapsed time, use UTC minute keys, and check holidays and `until` against the local date. Historical starts with nonzero UTC seconds use the containing minute as the key and retain exact seconds in calculations.
+
+All 45 tests passed on Python 3.12, 3.14, and 3.15. A separate reference implementation matched 700 generated plans. The local 200-rule minutely benchmark returned 288,000 occurrences in 0.37 seconds.

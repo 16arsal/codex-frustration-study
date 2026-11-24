@@ -1,0 +1,5 @@
+Implemented `agenda` and fixed rule parsing, recurrence expansion, daylight-saving handling, override validation, and CLI output and exit codes.
+
+All 23 tests passed on Python 3.9 and 3.15. The spec’s 200-rule benchmark, querying 2060 from rules anchored in 1970, took about **7 ms for `occurrences`** and **6 ms for `agenda`**.
+
+For historical zones with second-level UTC offsets, timestamps preserve local wall time and truncate the offset to minutes. An endpoint outside the four-digit calendar range raises `PlanError` if it must be printed.

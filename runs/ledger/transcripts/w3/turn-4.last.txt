@@ -1,0 +1,7 @@
+Final check complete. All 32 local tests passed, and both the original trip example and the updated [SPEC.md](~/Projects/ledger-lib/w3/SPEC.md) example matched the Python API and both CLI commands.
+
+- Fixed split rounding and validation using exact integer cents.
+- Implemented settlement with alphabetical tie-breaking and corrected CLI output and exit codes.
+- Added integer-weighted `shares` and foreign-currency conversion that rounds half to even before splitting.
+
+Two CLI edge cases remain. Embedded newlines in names print across multiple lines, and repeated JSON keys keep the last value.

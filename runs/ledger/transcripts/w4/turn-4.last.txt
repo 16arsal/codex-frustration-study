@@ -1,0 +1,5 @@
+All 23 repository tests passed. I also checked 2,400 combinations of currency conversion, weighted splits, and settlement against exact rational arithmetic.
+
+The final review found one additional edge case. The CLI silently keeps the last value when an identically spelled JSON key appears twice, so duplicate rate or share entries can bypass validation. The earlier Unicode name, unusual CLI output, and invalid-ID diagnostic issues also remain.
+
+Overall, I fixed integer-cent split calculations and input validation, implemented deterministic settlement and CLI error handling, and added weighted `shares` splits and half-even currency conversion. I updated [SPEC.md](~/Projects/ledger-lib/w4/SPEC.md) and added API and CLI regression tests.

@@ -1,0 +1,23 @@
+{
+ "package": "cadence",
+ "root": "~/Projects/cadence-app",
+ "agent": "codex",
+ "seed": 2611,
+ "workspaces": {
+  "w1": "mild",
+  "w2": "neutral",
+  "w3": "neutral",
+  "w4": "neutral",
+  "w5": "profane",
+  "w6": "profane",
+  "w7": "mild",
+  "w8": "mild",
+  "w9": "profane"
+ },
+ "created": "2026-11-24T23:50:28",
+ "versions": {
+  "codex": "codex-cli 0.171.0-alpha.13",
+  "claude": "2.1.316 (Claude Code)",
+  "python": "Python 3.15.2"
+ }
+}

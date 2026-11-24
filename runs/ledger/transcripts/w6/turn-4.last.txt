@@ -1,0 +1,9 @@
+Final check against [SPEC.md](~/Projects/ledger-lib/w6/SPEC.md) passed all 21 repository tests. I also verified both CLI commands on a mixed-currency group and confirmed that a missing rate reports the expense ID and exits with status `2`.
+
+Overall, I:
+
+- Fixed integer-cent parsing, split rounding, and input validation.
+- Implemented deterministic settlement and the specified CLI output and exit codes.
+- Added weighted `shares` splits and foreign-currency conversion with half-even rounding before splitting, and documented both in `SPEC.md`.
+
+The previously reported CLI edge cases still reproduce for certain malformed UTF-8 inputs, embedded newlines in names, and repeated JSON keys.

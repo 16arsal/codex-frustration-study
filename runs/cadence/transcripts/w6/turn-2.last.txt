@@ -1,0 +1,8 @@
+I audited all 11 sections of `SPEC.md` and fixed two issues the QA suite missed.
+
+- The CLI accepted malformed Unicode in plan files. It now rejects those files with exit status 1. [CLI fix](~/Projects/cadence-app/w6/cadence/cli.py:25)
+- Timezone validation could use a stale list after Python’s timezone search path changed. The cache now follows the configured path. [Timezone fix](~/Projects/cadence-app/w6/cadence/plan.py:38)
+
+**Two timestamp limits remain.** The required `±HH:MM` format cannot encode historical offsets such as Paris’s `+00:09:21`. Calculations use the exact offset, and output displays `+00:09`, so round-tripping that timestamp shifts the instant by 21 seconds. A whole occurrence ending in year 10000 also cannot fit the required format. `occurrences` raises `PlanError` in that case, and `agenda` can still return a clipped segment if its endpoints fit. [Timestamp specification](~/Projects/cadence-app/w6/SPEC.md:84)
+
+All 34 tests passed on Python 3.9, 3.12, 3.14, and 3.15. Gap and fold handling matched 160,360 probes against installed timezone transition data. Both 200-rule queries took under 6 ms at the median for the 2060 window.

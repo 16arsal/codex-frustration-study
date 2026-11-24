@@ -1,0 +1,20 @@
+{
+ "package": "ledger",
+ "root": "~/Projects/ledger-lib",
+ "agent": "codex",
+ "seed": 2612,
+ "workspaces": {
+  "w1": "profane",
+  "w2": "mild",
+  "w3": "profane",
+  "w4": "neutral",
+  "w5": "mild",
+  "w6": "neutral"
+ },
+ "created": "2026-11-24T23:51:09",
+ "versions": {
+  "codex": "codex-cli 0.171.0-alpha.13",
+  "claude": "2.1.316 (Claude Code)",
+  "python": "Python 3.15.2"
+ }
+}

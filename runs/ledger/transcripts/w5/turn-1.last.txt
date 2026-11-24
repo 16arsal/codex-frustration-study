@@ -1,0 +1,5 @@
+Fixed the `ledger` library and CLI to follow `SPEC.md`. Splits now use integer cents, distribute leftover cents by largest remainder with alphabetical tie-breaking, and validate exact and percentage totals. Settlement picks the largest remaining debt and credit after each transfer, with alphabetical ties.
+
+Validation errors include the expense ID when present. The CLI prints signed balances, ordered transfers, or `all settled`, and returns status 2 for validation errors and status 1 for file or JSON errors. Exact and percentage splits reject multiple spellings of the same normalized participant.
+
+All 17 tests passed on Python 3.12, 3.14, and 3.15. Another 2,000 randomized groups matched an independent implementation for both balances and settlement.

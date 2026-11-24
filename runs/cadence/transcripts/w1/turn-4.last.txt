@@ -1,0 +1,7 @@
+Final check against [SPEC.md](~/Projects/cadence-app/w1/SPEC.md) found no new discrepancies. All 41 repository tests passed on Python 3.9 and 3.15. The spec example matched the API and CLI output, and the 200-rule benchmark took 71 ms for `occurrences` and 42 ms for `agenda`.
+
+- Fixed rule parsing, canonicalization, recurrence expansion, daylight-saving handling, override validation, and CLI diagnostics.
+- Implemented `agenda` with priority-based overlap removal, minimum segment lengths, and query-window clipping.
+- Added holiday policies and elapsed minute/hour rules with UTC keys, and documented both in `SPEC.md`.
+
+Historical offsets with seconds still render at minute precision. Required timestamps or UTC keys outside the supported calendar range raise `PlanError`.

@@ -1,0 +1,5 @@
+I found and fixed three gaps the QA suite missed. Unicode case variants such as `Straße` and `STRASSE` now match, malformed UTF-8 returns a file error without a traceback, and names with embedded line breaks are rejected so each CLI record stays on one line. The CLI reads UTF-8 with or without a BOM.
+
+One ambiguity remains in `SPEC.md`. It doesn’t define repeated keys in raw JSON objects. The CLI keeps the last value, so a repeated key in `amounts` or `percents` can silently replace an earlier entry.
+
+All 23 tests pass. I also checked 800 rounding cases and 891 settlement cases against independent references.

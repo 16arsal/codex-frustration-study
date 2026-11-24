@@ -1,0 +1,8 @@
+I audited all 11 sections of `SPEC.md` and found two gaps the passing QA suite missed. Both are fixed.
+
+- A counted monthly rule that could never produce a date still scanned toward distant windows. A 200-rule reproduction dropped from about 1.3 seconds to 3 milliseconds.
+- The CLI accepted certain malformed UTF-8 bytes as JSON. It now rejects them with exit status 1 and still accepts valid UTF-8, UTF-16, and UTF-32 plans.
+
+All 29 repository tests passed on Python 3.12, 3.14, and 3.15. The monthly fix also matched direct calendar enumeration across 8,232 cases.
+
+Two limits remain in the timestamp format. Historical UTC offsets can include seconds, which `±HH:MM` cannot represent exactly. I reproduced an apparent 21-second overlap when parsing two adjacent agenda segments from Paris and UTC in 1900. Also, `occurrences` raises `PlanError` when a whole occurrence ends beyond year 9999, while `agenda` can return a clipped segment that fits within the four-digit calendar.

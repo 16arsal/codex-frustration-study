@@ -1,0 +1,8 @@
+Implemented holiday calendars and minute and hour rules for both the Python API and CLI. Updated [SPEC.md](~/Projects/cadence-app/w3/SPEC.md) with the new grammar, expansion order, and override key formats.
+
+- Holidays are applied before `times` and overrides. Shifted occurrences retain their original keys.
+- Minute and hour rules preserve elapsed spacing across clock changes and use UTC override keys.
+
+All 38 tests passed. Another 500 randomized plans matched an independent implementation, and the mixed 200-rule benchmark took under 30 ms per query locally.
+
+Two calendar edge cases are documented. Historical UTC keys use minute precision, and a holiday block ending on `9999-12-31` has no representable shift destination.

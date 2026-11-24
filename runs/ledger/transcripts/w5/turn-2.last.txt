@@ -1,0 +1,7 @@
+I reviewed `SPEC.md` line by line and found three edge cases that the QA suite missed. All three are fixed.
+
+- Unicode names now match case-insensitively. For example, `STRASSE` resolves to a member declared as `Straße`, whose output name is `straße`. Declaring both spellings is a duplicate-name error.
+- The CLI now escapes embedded line breaks, literal backslashes, and lone surrogates in names so each balance or transfer stays on one line.
+- Malformed file encodings now produce an `error:` message on stderr and exit with status 1, as specified.
+
+All 20 repository tests passed on Python 3.12, 3.14, and 3.15. I also checked 3,960 rounding cases and 231 settlement configurations against independent implementations. Every result matched.

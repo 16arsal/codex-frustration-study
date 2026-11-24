@@ -1,0 +1,9 @@
+I audited `SPEC.md` section by section and fixed three gaps the QA suite missed:
+
+- Time zone validation now requires the exact installed IANA spelling, even on case-insensitive filesystems. `Europe/Berlin` works and `europe/berlin` is rejected. [IANA naming rules](https://data.iana.org/time-zones/theory.html#naming)
+- Invalid fields containing very large integers now raise `PlanError`. The CLI exits with status 2.
+- Rule keywords now use Unicode case-insensitive matching. Digits remain ASCII-only.
+
+All 26 tests passed on Python 3.9 and 3.15. Both query APIs also matched an independent implementation on 350 mixed-zone plans. The first 200-rule query for 2060 took 63 ms.
+
+Two timestamp cases remain underspecified. Historical offsets such as Paris’s `+00:09:21` cannot fit `±HH:MM`, so output preserves local wall time and truncates the offset to minutes. A valid duration can also end in year 10000 or later. `occurrences` raises `PlanError` when it must print that endpoint, while `agenda` can return the segment clipped to a representable window.

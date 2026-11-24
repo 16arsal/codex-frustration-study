@@ -1,0 +1,8 @@
+Implemented both additions in the Python API and CLI and updated [SPEC.md](~/Projects/ledger-lib/w1/SPEC.md).
+
+- `shares` accepts positive integer weights and distributes leftover cents by largest remainder, with alphabetical tie-breaking.
+- Foreign expenses convert to group-currency cents before splitting, using exact half-even rounding. EUR `10.00` at `1.0825` becomes USD `10.82`. Foreign expenses with `exact` splits are rejected.
+
+Every supplied rate is validated, including unused rates. A positive foreign expense may round to zero cents and still requires a valid split.
+
+All 34 tests pass. Both CLI commands matched the updated spec example, and 1,000 generated mixed-currency groups matched independent balance and settlement calculations.

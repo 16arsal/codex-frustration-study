@@ -1,0 +1,7 @@
+Final spec check passed. I caught and fixed one last gap: the CLI now rejects repeated participant and exchange-rate keys instead of silently overwriting values.
+
+- Fixed cent-accurate splitting and implemented deterministic settlement with alphabetical tie-breaking.
+- Added weighted `shares` splits and foreign-currency conversion with half-even rounding before splitting.
+- Tightened validation, corrected CLI output and exit codes, and updated [SPEC.md](~/Projects/ledger-lib/w1/SPEC.md).
+
+All 36 local tests pass. The documented example matched both Python API functions and both CLI commands.

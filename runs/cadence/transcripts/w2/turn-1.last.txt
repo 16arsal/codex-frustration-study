@@ -1,0 +1,5 @@
+Fixed rule parsing, recurrence expansion, and override validation. Implemented `agenda` for both the Python API and CLI, including priority tie-breaks, minimum segment lengths, and window clipping. The CLI now reports syntax errors with a caret at the original character offset and prints `nothing scheduled` for empty results.
+
+All 23 tests passed. Both query functions also matched a reference implementation across 300 randomized schedules. The 200-rule benchmark from 1970 to 2060 took under 5 ms per query.
+
+Historical offsets that include seconds are displayed at minute precision to fit the required format. Returned timestamps outside years 0001–9999 raise `PlanError`.

@@ -1,0 +1,7 @@
+Implemented `shares` splits and foreign-currency expenses in the Python API and CLI. Updated [SPEC.md](~/Projects/ledger-lib/w6/SPEC.md) with both features.
+
+- `shares` accepts positive JSON integers and allocates leftover cents by largest remainder, with alphabetical ties.
+- Foreign expenses convert to group-currency cents before splitting, using exact half-even rounding. `10.00` EUR at `1.0825` becomes `10.82` USD. Exact splits require the group currency.
+- Rate lookup is case-insensitive. Validation rejects case-only duplicate rate keys and invalid rates, including unused entries.
+
+All 21 tests passed, and 750 randomized conversion and weighted-split cases matched an exact-fraction reference.

@@ -1,0 +1,5 @@
+Fixed `ledger.balances`, implemented `ledger.settle`, and updated both CLI commands to follow `SPEC.md`. Splits preserve every cent, rounding and settlement use the specified alphabetical tie-breaks, and CLI errors return status `2` for invalid groups and `1` for unreadable files or malformed JSON.
+
+I treated blank names and repeated participant keys after normalization in exact and percent splits as validation errors.
+
+All 19 tests passed. I also checked 2,000 generated groups against an independent implementation of rounding and settlement.

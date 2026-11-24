@@ -1,0 +1,9 @@
+I audited all 11 sections of `SPEC.md` and fixed three gaps the passing QA suite missed:
+
+- Timezone names now require exact IANA spelling, even on case-insensitive filesystems.
+- Counted monthly rules that can never produce a date stop after one calendar cycle. A 200-rule case that previously took about 1.1 seconds now takes about 3 ms.
+- Deeply nested malformed JSON now produces the required CLI error and exit status 1.
+
+All 24 repository tests passed. Another 1,000 monthly plans matched an independent recurrence calculation, and the 200-rule benchmark for 2060 took 93 ms with a cold timezone lookup.
+
+Two timestamp limits remain in the specified format. Historical offsets with seconds are shortened to minutes in the output, while comparisons use the exact instants. `occurrences` raises `PlanError` when a full occurrence extends beyond the four-digit calendar. [SPEC.md](~/Projects/cadence-app/w7/SPEC.md:90)

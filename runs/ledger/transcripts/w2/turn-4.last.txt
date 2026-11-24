@@ -1,0 +1,5 @@
+I checked the Python API and CLI against [SPEC.md](~/Projects/ledger-lib/w2/SPEC.md). All 31 repository tests passed, and both CLI commands produced the expected output for the example trip.
+
+Overall, I fixed cent rounding and input validation, implemented deterministic settlement, and corrected CLI formatting and exit codes. I also added weighted `shares` splits and foreign-currency conversion with half-even rounding before splitting, and documented both additions.
+
+Two CLI edge cases remain underspecified. Embedded line breaks can split output records, and lone Unicode surrogates can trigger an encoding error. Repeated JSON keys use the last value before validation.

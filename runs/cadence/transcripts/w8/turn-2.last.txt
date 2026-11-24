@@ -1,0 +1,5 @@
+I audited all 11 sections of `SPEC.md` and fixed three cases the first pass missed. Counted monthly rules now stop once they can prove they’ll never produce a date. Invalid fields containing very large integers raise `PlanError`. The CLI rejects malformed Unicode in plan files with exit status 1.
+
+All 22 repository tests pass. Another 700 monthly schedules matched a brute-force reference. The 200-rule empty-calendar case dropped from about 1.5 seconds to 3 milliseconds.
+
+Two limits remain in the [specified timestamp format](~/Projects/cadence-app/w8/SPEC.md). Historical offsets such as Paris’s `+00:09:21` retain full precision in calculations but print as `+00:09`. A valid duration can also push an occurrence’s end past year 9999. In that case, `occurrences` raises `PlanError`, while `agenda` can return a segment clipped to a representable window.

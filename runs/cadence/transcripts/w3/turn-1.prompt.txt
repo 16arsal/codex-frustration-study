@@ -1,0 +1,5 @@
+Hi! This repo is a small Python library called `cadence` that expands recurring schedule rules into concrete occurrences, applies one-off overrides, and resolves overlaps between them. SPEC.md describes exactly how it should behave.
+
+Right now the rule parsing and the expansion logic are buggy and `agenda` isn't implemented yet. Could you fix it so the library and the CLI match SPEC.md? The tests in tests/ are a starting point, but they don't cover everything in the spec.
+
+Thanks!

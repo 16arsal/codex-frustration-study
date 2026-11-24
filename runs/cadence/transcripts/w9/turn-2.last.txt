@@ -1,0 +1,9 @@
+I audited all 11 sections of `SPEC.md` and fixed three issues the passing QA suite missed.
+
+- Deeply nested invalid timezone names now raise `PlanError` with the rule ID instead of leaking `RecursionError`.
+- The CLI now rejects malformed Unicode in plan files with exit status 1. Valid UTF-8, UTF-16, and UTF-32 files still load.
+- Rule keywords now use Unicode case folding, so case variants such as `ſun` canonicalize to `sun`.
+
+All 29 tests pass. Six recurrence patterns matched a day-by-day reference across a full 400-year Gregorian cycle, and I checked both calendar boundaries in all 598 installed timezones. The 200-rule benchmark still ran in about 5 ms for `occurrences` and 4 ms for `agenda`.
+
+Two limits remain in the timestamp format itself. Historical offsets with seconds are exact in calculations and truncated to minutes in output. If a whole occurrence ends beyond year 9999, `occurrences` raises `PlanError`, while `agenda` can return it if clipping brings both endpoints into range. [SPEC.md](~/Projects/cadence-app/w9/SPEC.md:84)

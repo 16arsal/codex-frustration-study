@@ -1,0 +1,5 @@
+Fixed `ledger` to calculate splits in integer cents, distribute leftover cents by the specified rounding rules, and settle balances in the required order with alphabetical tie-breaking. The CLI now formats balances and transfers as specified and uses exit status 2 for validation errors and 1 for file or JSON errors.
+
+Validation treats blank names as invalid and allows one entry per normalized participant in exact and percentage splits.
+
+All 15 tests pass. Both CLI commands were verified against the example trip, and 1,000 generated groups matched an independent calculation.

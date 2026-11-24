@@ -1,0 +1,5 @@
+I found and fixed one validation gap. `cadence` now rejects system timezone names such as `posixrules` while continuing to accept IANA aliases such as `US/Eastern`.
+
+All 26 tests pass, including a new check that an occurrence ending exactly at the query window’s start cannot trim an agenda segment. Both queries completed the 200-rule benchmark in under 5 ms locally.
+
+[SPEC.md](~/Projects/cadence-app/w3/SPEC.md) leaves two timestamp edge cases unresolved. Historical offsets can include seconds, so calculations use the exact offset and output shows it at minute precision. A valid duration can also push an occurrence’s end past year 9999. `occurrences` raises `PlanError` in that case, while `agenda` can return a segment clipped to a representable window.

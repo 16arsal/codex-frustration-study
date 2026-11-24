@@ -1,0 +1,7 @@
+Final check against [SPEC.md](~/Projects/cadence-app/w9/SPEC.md) found no new issues. All 45 local tests passed, alongside your 31 QA checks.
+
+- Fixed rule parsing, canonical formatting, timezone handling, override validation, and CLI error reporting.
+- Implemented `agenda` with priority-based overlap resolution, minimum segment lengths, and window clipping.
+- Added holiday ranges and policies, plus elapsed-time minute and hour rules with UTC-minute keys. Updated the spec and added regression tests.
+
+The 200-rule benchmark returned 288,001 occurrences in 0.74 seconds. `agenda` took 0.19 seconds. Historical offsets keep second precision in calculations, while rendered offsets and UTC keys use the specified minute precision.

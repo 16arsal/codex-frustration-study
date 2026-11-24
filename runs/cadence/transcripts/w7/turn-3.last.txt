@@ -1,0 +1,5 @@
+Implemented holidays and elapsed-time minute and hour rules in the Python API and CLI. Holiday filtering and shift collisions are resolved before counting and overrides. Minute and hour rules keep a fixed elapsed interval across clock changes and use UTC override keys. [Updated SPEC.md](~/Projects/cadence-app/w7/SPEC.md)
+
+All 36 tests passed, and 1,800 randomized plans matched an independent brute-force implementation. A one-day query in 2060 returned 288,000 occurrences from 200 minute rules anchored in 1970 in 0.35 seconds.
+
+For historical offsets that include seconds, UTC keys use the minute containing the start. Overlap and duration calculations still use the exact instant.

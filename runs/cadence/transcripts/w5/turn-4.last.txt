@@ -1,0 +1,7 @@
+Final [SPEC.md](~/Projects/cadence-app/w5/SPEC.md) check complete. All 45 repository tests passed on Python 3.12, 3.14, and 3.15. A mixed-rule CLI check passed, and both queries finished the 200-rule minutely benchmark in under 0.4 seconds locally.
+
+- Fixed rule parsing, canonicalization, DST-aware recurrence expansion, override validation, and CLI errors.
+- Implemented `agenda` with priority-based overlap resolution, minimum segment lengths, and window clipping.
+- Added holiday keep, skip, and shift behavior plus elapsed minute and hour rules with UTC keys.
+
+The timestamp format still has two limits. Historical offsets with seconds lose precision when displayed, and endpoints outside the four-digit calendar cannot be rendered.

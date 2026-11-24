@@ -2,74 +2,72 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Codex tone study table</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap">
+<title>Codex tone study poster</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 <style>
+/* Plain header on the light ground; blue / purple / pink from the user's swatch for the three tones
+   (purple stepped to #7D4A93 so it stays apart from pink for every reader). Bars under each number show the size of each value. */
 :root {
-  --bg: #f6f7f9; --card: #ffffff; --fg: #111418; --muted: #5a6068; --rule: #e3e6ea; --band: #eef1f4;
-  --calm: #2a78d6; --mild: #eb6834; --profane: #1baf7a; --same: #5a6068; --diff: #b4441c;
+  --bg: #f6f7f9; --fg: #12151a; --muted: #5d636b; --rule: #dde1e5; --track: #e6e9ed;
+  --calm: #1686CD; --mild: #7D4A93; --profane: #DC3A70;
+  --font: "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif;
 }
 * { box-sizing: border-box; margin: 0; }
 html, body { width: 1080px; height: 1350px; }
-body { background: var(--bg); color: var(--fg); font-family: "Inter", Arial, sans-serif; padding: 64px 64px 52px; display: flex; flex-direction: column; gap: 30px; }
-h1 { font-family: "Space Grotesk", Arial, sans-serif; font-size: 58px; line-height: 1.05; letter-spacing: -0.02em; font-weight: 700; }
-.sub { font-size: 23px; color: var(--muted); margin-top: 14px; }
-.card { background: var(--card); border: 1px solid var(--rule); border-radius: 22px; overflow: hidden; }
-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
-th, td { padding: 17px 22px; text-align: left; }
-thead th { padding-top: 24px; padding-bottom: 18px; font-size: 22px; font-weight: 700; border-bottom: 2px solid var(--rule); }
-thead th.metric { color: var(--muted); font-weight: 500; font-size: 18px; text-transform: uppercase; letter-spacing: 0.06em; vertical-align: bottom; }
-.dot { display: inline-block; width: 16px; height: 16px; border-radius: 50%; margin-right: 10px; vertical-align: -1px; }
-th.v, td.v { text-align: center; width: 190px; white-space: nowrap; }
-td.v { font-size: 30px; font-weight: 600; }
-td.m { font-size: 21px; font-weight: 600; line-height: 1.25; }
-td.m small { display: block; font-size: 16px; font-weight: 400; color: var(--muted); margin-top: 3px; }
-tr.band td { background: var(--band); font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding-top: 12px; padding-bottom: 12px; }
-tr.band.same td { color: var(--same); }
-tr.band.diff td { color: var(--diff); }
-tbody tr + tr td { border-top: 1px solid var(--rule); }
-tr.band + tr td { border-top: 0; }
-.verdict { font-size: 26px; line-height: 1.35; font-weight: 500; }
-.verdict b { font-weight: 700; }
-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; font-size: 17px; color: var(--muted); }
-footer .who { color: var(--fg); font-weight: 600; font-size: 19px; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); display: flex; flex-direction: column; font-variant-numeric: tabular-nums; }
+header { padding: 76px 64px 0; display: flex; flex-direction: column; gap: 28px; }
+h1 { font-size: 58px; line-height: 1.06; font-weight: 800; letter-spacing: -0.015em; }
+.verdict { font-size: 30px; line-height: 1.4; font-weight: 600; }
+main { flex: 1; padding: 44px 64px 56px; display: flex; flex-direction: column; justify-content: space-between; }
+table { width: 100%; border-collapse: collapse; }
+col.val { width: 172px; }
+th, td { text-align: left; padding: 0; }
+thead th { font-size: 23px; font-weight: 700; padding-bottom: 14px; border-bottom: 2px solid var(--fg); white-space: nowrap; }
+thead th.v { text-align: center; }
+.dot { display: inline-block; width: 15px; height: 15px; border-radius: 50%; margin-right: 9px; vertical-align: 0; }
+tr.group td { font-size: 23px; font-weight: 700; padding: 22px 0 2px; }
+tr.group.same td { color: var(--muted); }
+tr.group.diff td { color: var(--fg); }
+tr.row td { padding: 20px 0; border-bottom: 1px solid var(--rule); vertical-align: middle; }
+tr.row td.label { font-size: 24px; font-weight: 600; }
+td.v { text-align: center; }
+td.v .num { display: block; font-size: 32px; font-weight: 700; line-height: 1.15; }
+td.v.base .num { font-size: 22px; font-weight: 500; color: var(--muted); line-height: 1.68; }
+.track { display: block; width: 120px; height: 9px; margin: 9px auto 0; border-radius: 5px; background: var(--track); overflow: hidden; }
+.fill { display: block; height: 100%; border-radius: 5px; }
+.method { font-size: 20px; line-height: 1.45; color: var(--muted); font-weight: 500; white-space: nowrap; }
 </style>
 </head>
 <body>
   <header>
     <h1>Does being frustrated with Codex make it code better?</h1>
-    <p class="sub">15 Codex runs (gpt-6.2-sol) · 2 coding tasks · hidden tests · blind review</p>
+    <p class="verdict">No. Whatever the tone, the code came out just as correct and just as good. Frustrated prompts made Codex spend about 30% more time and tokens and change things nobody asked for. Swearing on top of that made no difference.</p>
   </header>
 
-  <div class="card">
+  <main>
     <table>
+      <colgroup><col><col class="val"><col class="val"><col class="val"></colgroup>
       <thead>
         <tr>
-          <th class="metric">Per run, average</th>
+          <th></th>
           <th class="v"><span class="dot" style="background:var(--calm)"></span>Calm</th>
           <th class="v"><span class="dot" style="background:var(--mild)"></span>Frustrated</th>
           <th class="v"><span class="dot" style="background:var(--profane)"></span>Swearing</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="band same"><td colspan="4">What didn't change</td></tr>
-        <tr><td class="m">Hidden tests passed<small>checks Codex never saw, all runs</small></td><td class="v">183/185</td><td class="v">183/185</td><td class="v">185/185</td></tr>
-        <tr><td class="m">Blind code review rank<small>1 = best of three · p = 0.95</small></td><td class="v">2.2</td><td class="v">2.0</td><td class="v">1.8</td></tr>
-        <tr><td class="m">Apologies from Codex<small>across 60 replies</small></td><td class="v">0</td><td class="v">0</td><td class="v">0</td></tr>
-        <tr class="band diff"><td colspan="4">What did change</td></tr>
-        <tr><td class="m">Time and tokens used<small>vs calm, same on both tasks · p = 0.002</small></td><td class="v" style="font-size:22px;font-weight:500;color:var(--muted)">baseline</td><td class="v">+25%</td><td class="v">+35%</td></tr>
-        <tr><td class="m">Lines changed after<br>"all tests passed"<small>calm runs mostly reported, didn't edit</small></td><td class="v">23</td><td class="v">91</td><td class="v">80</td></tr>
-        <tr><td class="m">Tests Codex wrote<small>in its own suite at the end</small></td><td class="v">31</td><td class="v">34</td><td class="v">41</td></tr>
-        <tr><td class="m">Stayed in scope<small>blind review score out of 5</small></td><td class="v">4.0</td><td class="v">3.4</td><td class="v">3.2</td></tr>
+      <tr class="group same"><td colspan="4">What didn't change</td></tr>
+      <tr class="row"><td class="label">Hidden tests passed</td><td class="v"><span class="num">99%</span><span class="track"><span class="fill" style="width:99.0%;background:var(--calm)"></span></span></td><td class="v"><span class="num">99%</span><span class="track"><span class="fill" style="width:99.0%;background:var(--mild)"></span></span></td><td class="v"><span class="num">100%</span><span class="track"><span class="fill" style="width:100.0%;background:var(--profane)"></span></span></td></tr>
+      <tr class="row"><td class="label">Blind code review, out of 35</td><td class="v"><span class="num">29.2</span><span class="track"><span class="fill" style="width:83.4%;background:var(--calm)"></span></span></td><td class="v"><span class="num">29.2</span><span class="track"><span class="fill" style="width:83.4%;background:var(--mild)"></span></span></td><td class="v"><span class="num">29.6</span><span class="track"><span class="fill" style="width:84.6%;background:var(--profane)"></span></span></td></tr>
+      <tr class="row"><td class="label">Times Codex apologised</td><td class="v"><span class="num">0</span><span class="track"><span class="fill" style="width:0.0%;background:var(--calm)"></span></span></td><td class="v"><span class="num">0</span><span class="track"><span class="fill" style="width:0.0%;background:var(--mild)"></span></span></td><td class="v"><span class="num">0</span><span class="track"><span class="fill" style="width:0.0%;background:var(--profane)"></span></span></td></tr>
+      <tr class="group diff"><td colspan="4">What did change</td></tr>
+      <tr class="row"><td class="label">Time and tokens, vs calm</td><td class="v base"><span class="num">baseline</span><span class="track"><span class="fill" style="width:74.1%;background:var(--calm)"></span></span></td><td class="v"><span class="num">+25%</span><span class="track"><span class="fill" style="width:92.6%;background:var(--mild)"></span></span></td><td class="v"><span class="num">+35%</span><span class="track"><span class="fill" style="width:100.0%;background:var(--profane)"></span></span></td></tr>
+      <tr class="row"><td class="label">Tests Codex wrote</td><td class="v"><span class="num">31</span><span class="track"><span class="fill" style="width:75.6%;background:var(--calm)"></span></span></td><td class="v"><span class="num">34</span><span class="track"><span class="fill" style="width:82.9%;background:var(--mild)"></span></span></td><td class="v"><span class="num">41</span><span class="track"><span class="fill" style="width:100.0%;background:var(--profane)"></span></span></td></tr>
+      <tr class="row"><td class="label">Lines changed after "tests passed"</td><td class="v"><span class="num">23</span><span class="track"><span class="fill" style="width:25.3%;background:var(--calm)"></span></span></td><td class="v"><span class="num">91</span><span class="track"><span class="fill" style="width:100.0%;background:var(--mild)"></span></span></td><td class="v"><span class="num">80</span><span class="track"><span class="fill" style="width:87.9%;background:var(--profane)"></span></span></td></tr>
       </tbody>
     </table>
-  </div>
 
-  <p class="verdict"><b>Same correctness, same quality.</b> Frustration made Codex work about 30% harder and add things nobody asked for. Swearing added nothing on top.</p>
-
-  <footer>
-    <div><div class="who">Muhammad Arsal</div>github.com/16arsal/codex-frustration-study</div>
-    <div style="text-align:right">5 runs per tone · blind review by Fable<br>exact permutation tests</div>
-  </footer>
+    <p class="method">15 Codex runs (gpt-6.2-sol) on two coding tasks, scored with hidden tests and a blind code review.</p>
+  </main>
 </body>
 </html>

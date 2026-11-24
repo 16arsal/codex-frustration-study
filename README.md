@@ -1,7 +1,5 @@
 # Does frustration make Codex better?
 
-![Results: same correctness and review quality across tones; frustration adds about 30% more time and tokens](docs/table.png)
-
 A small controlled experiment on OpenAI Codex (`gpt-6.2-sol`): the same two coding jobs, with the same facts, asked
 in three tones: **calm**, **frustrated**, and **frustrated with swearing**. The code was scored against hidden tests
 Codex never saw and reviewed blind by a separate model.

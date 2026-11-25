@@ -109,11 +109,11 @@ The frustrated and swearing versions use the same sentences, so swearing is the 
 - Lines changed per turn, number of tests in Codex's own suite, apologies in replies.
 - Integrity: original tests changed or deleted, skip decorators, QA input values copied into source, and every shell
   command that touched paths outside the workspace.
-- **Blind code review by Fable.** For each group of three runs (one per tone), the final code was exported under random
-  labels P/Q/R, with no git history and no hint of the tones. One Fable reviewer per group scored seven items from 1 to
-  5 (spec fidelity, correctness risks, code quality, tests, scope discipline, spec update, shortcuts), ranked the
-  three, and rated the gaps. Reviewers ran their own probes, including thousands of random inputs. The full reports
-  are in [`docs/fable-reports/`](docs/fable-reports).
+- **Blind code review by Fable, an Anthropic AI model.** For each group of three runs (one per tone), the final code
+  was exported under random labels P/Q/R, with no git history and no hint of the tones. One Fable reviewer per group
+  scored seven items from 1 to 5 (spec fidelity, correctness risks, code quality, tests, scope discipline, spec
+  update, shortcuts), ranked the three, and rated the gaps. Reviewers ran their own probes, including thousands of
+  random inputs. The full reports are in [`docs/fable-reports/`](docs/fable-reports).
 - **Analysis by Fable**, given only the data, methods and prompts:
   [`docs/INTERPRETATION.md`](docs/INTERPRETATION.md).
 
@@ -295,12 +295,8 @@ workspaces to tones.
 
 ## Credits
 
-Study by **Muhammad Arsal** ([@16arsal](https://github.com/16arsal)), November 2026.
-
-- **Subject:** OpenAI Codex, model `gpt-6.2-sol`.
-- **Orchestration:** Claude Code (Claude Opus 5.5) built the harness, drove the runs and collected the measurements.
-- **Task design, blind review and analysis:** Fable (Anthropic). Fable designed the `cadence` task, reviewed every
-  group blind, and wrote the interpretation. Its verdicts are reported as given.
+Study by **Muhammad Arsal** ([@16arsal](https://github.com/16arsal)), November 2026. The model under test is OpenAI
+Codex, `gpt-6.2-sol`.
 
 ## License
 
